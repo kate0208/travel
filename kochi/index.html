@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kochi Travel Directory</title>
+  <style>
+    :root {
+      /* 仁淀藍 (Niyodo Blue) 靈感的藍色系 */
+      --bg-blue: #F0F8FF;      /* 愛麗絲藍，乾淨的底色 */
+      --text-navy: #011F4B;    /* 深海軍藍，用於標題和文字 */
+      --btn-blue: #005B96;     /* 飽和的仁淀川藍 */
+      --btn-hover: #03396C;    /* 滑鼠懸停的深藍色 */
+      --accent-cyan: #6497B1;  /* 點綴用的淺藍 */
+    }
 
+    body {
+      font-family: "PingFang TC", "Heiti TC", "Noto Sans TC", sans-serif;
+      background-color: var(--bg-blue);
+      color: var(--text-navy);
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      border-bottom: 3px solid var(--accent-cyan);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    p.subtitle {
+      color: var(--accent-cyan);
+      margin-bottom: 40px;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .menu-container {
+      width: 100%;
+      max-width: 350px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .menu-container li {
+      margin: 20px 0;
+    }
+
+    .menu-container a {
+      display: block;
+      padding: 18px 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: var(--btn-blue);
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 91, 150, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .menu-container a:hover {
+      background-color: var(--btn-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 91, 150, 0.3);
+    }
+
+    .note {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: var(--accent-cyan);
+      background-color: rgba(100, 151, 177, 0.1);
+      padding: 10px 20px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>KOCHI 2026</h1>
+  <p class="subtitle">四國高知 · 尋找仁淀藍之旅</p>
+
+  <ul class="menu-container">
+    <li><a href="day1/index.html">Day 1 行程</a></li>
+    <li><a href="day2/index.html">Day 2 行程</a></li>
+    <li><a href="day3/index.html">Day 3 行程</a></li>
+    <li><a href="day4/index.html">Day 4 行程</a></li>
+  </ul>
+
+  <div class="note">
+    ✨ 溫馨提醒：記得帶上御朱印帳與收集卡冊喔！
+  </div>
+
+</body>
+</html>
