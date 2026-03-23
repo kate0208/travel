@@ -3,46 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>travel_info</title>
+  <title>Travel Info</title>
   <style>
+    :root {
+      /* 大地色系 (Earth Tones) 色彩定義 */
+      --bg-earth: #F4F1EA;      /* 燕麥米白，溫和不刺眼的背景 */
+      --text-earth: #4A4036;    /* 深胡桃木色，確保文字清晰閱讀 */
+      --btn-earth: #A68A6D;     /* 溫潤的卡其 / 拿鐵色 */
+      --btn-hover: #856A50;     /* 滑鼠懸停時的深焙咖啡色 */
+      --text-light: #FFFCF9;    /* 按鈕上的乾淨白色 */
+    }
+
     body {
-      font-family: "Segoe UI", "Noto Sans TC", sans-serif;
+      font-family: "PingFang TC", "Heiti TC", "Noto Sans TC", sans-serif;
       line-height: 1.8;
       margin: 0;
       padding: 0 40px;
-      background-color: #fffaf5;
-      color: #333;
+      background-color: var(--bg-earth);
+      color: var(--text-earth);
       text-align: center;
+      /* 使用 flexbox 讓內容在畫面上垂直置中，看起來更大氣 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
-    h1 {
-      font-size: 1.5em;
-      color: #b22222;
-      margin-top: 30px;
-    }
+
     ul {
       font-size: 1.1em;
       list-style: none;
       padding: 0;
       margin: 0;
+      width: 100%;
+      max-width: 320px; /* 限制最大寬度，讓按鈕看起來更修長精緻 */
     }
+
     li {
-      margin: 30px 0;
+      margin: 20px 0;
     }
+
     a {
-      display: inline-block;;
-      padding: 15px;
-      font-size: 1.1em;
+      display: block; /* 改成 block 讓每個按鈕寬度一致 */
+      padding: 18px;
+      font-size: 1.2em;
       font-weight: bold;
-      color: #fffaf5;             
-      background-color: #b22222; 
-      border-radius: 8px;
+      color: var(--text-light);              
+      background-color: var(--btn-earth); 
+      border-radius: 12px; /* 加大圓角，增加溫潤感 */
       text-decoration: none;
-      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 4px 6px rgba(74, 64, 54, 0.1); /* 加上淡淡的陰影增加立體感 */
+      transition: all 0.3s ease;
     }
+
     a:hover {
-      background-color: #8b1a1a; 
-      transform: scale(1.03);
+      background-color: var(--btn-hover); 
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(74, 64, 54, 0.2);
     }
   </style>
 </head>
@@ -50,6 +67,6 @@
     <ul>
       <li><a href="nagoya/index.html" target="_blank">NAGOYA 名古屋</a></li>
       <li><a href="kochi/index.html" target="_blank">KOCHI 高知</a></li>
-      <li><a href="day4/index.html" target="_blank">Day 4 行程</a></li>
-      <li><a href="day5/index.html" target="_blank">Day 5 行程</a></li>
     </ul>
+</body>
+</html>
