@@ -37,13 +37,14 @@
       padding-bottom: 5px;
     }
 
-p.subtitle {
+    p.subtitle {
       color: var(--accent-cyan);
-      margin-bottom: 25px; 
+      margin-bottom: 25px;
       font-size: 1.1em;
       font-weight: bold;
     }
 
+    /* 航班資訊區塊的整體樣式 */
     .flight-info {
       background-color: #ffffff;
       color: var(--text-navy);
@@ -54,9 +55,18 @@ p.subtitle {
       font-weight: bold;
       line-height: 1.8;
       border-left: 5px solid var(--accent-cyan);
-      text-align: left; /* 讓文字靠左對齊，版面更整齊 */
+      text-align: left;
       width: 100%;
-      max-width: 310px; /* 配合選單寬度微調 */
+      max-width: 310px;
+    }
+
+    /* 新增：航班資訊小標題的專屬樣式 */
+    .flight-title {
+      color: var(--btn-blue);
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      border-bottom: 1px dashed #ccc; /* 加上淡淡的虛線分隔 */
+      padding-bottom: 5px;
     }
 
     .menu-container {
@@ -105,10 +115,11 @@ p.subtitle {
   <p class="subtitle">2026/05/16-05/20 四國高知 · 尋找仁淀藍之旅</p>
 
   <div class="flight-info">
-    ✈️ 5/16 TPE-KCZ 08:20 - 12:00<br>
-    ✈️ 5/20 KCZ-TPE 14:00 - 15:20
+    <div class="flight-title">✈️ 航班資訊</div>
+    去程 5/16 TPE-KCZ 08:20 - 12:00<br>
+    回程 5/20 KCZ-TPE 14:00 - 15:20
   </div>
-  
+
   <ul class="menu-container">
     <li><a href="day1/index.html">Day 1 行程</a></li>
     <li><a href="day2/index.html">Day 2 行程</a></li>
