@@ -99,6 +99,57 @@
       box-shadow: 0 6px 12px rgba(0, 91, 150, 0.3);
     }
 
+/* 新增：可展開的補充資訊區塊樣式 */
+    details.info-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      text-align: left;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 310px;
+      box-shadow: 0 4px 6px rgba(0, 91, 150, 0.1);
+      border-left: 5px solid var(--yuzu-gold, #F2A900); /* 借用一點柚子黃做區隔 */
+      padding: 15px 25px;
+      color: var(--text-navy);
+      font-size: 0.9em; /* 字體稍微縮小，區分主次 */
+    }
+
+    details.info-box summary {
+      font-weight: bold;
+      color: var(--text-navy);
+      cursor: pointer;
+      list-style: none; /* 隱藏部分瀏覽器預設的黑色小三角形 */
+      outline: none;
+    }
+
+    /* 隱藏 Safari/Chrome 預設的黑色小三角形 */
+    details.info-box summary::-webkit-details-marker {
+      display: none; 
+    }
+
+    details.info-box summary::before {
+      content: '💡 '; /* 用燈泡 icon 取代原本的三角形 */
+    }
+
+    /* 展開後的內部文字排版 */
+    .info-content {
+      margin-top: 15px;
+      line-height: 1.6;
+      border-top: 1px dashed #eee;
+      padding-top: 10px;
+    }
+
+    .info-content ol {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .info-content li {
+      margin-bottom: 10px;
+    }
+    
+
     .note {
       margin-top: 50px;
       font-size: 0.9em;
@@ -119,6 +170,18 @@
     去程 5/16 TPE-KCZ 08:20 - 12:00<br>
     回程 5/20 KCZ-TPE 14:00 - 15:20
   </div>
+
+  <details class="info-box">
+    <summary>小知識：為什麼叫龍馬機場？</summary>
+    <div class="info-content">
+      <p>高知龍馬機場之所以命名為「龍馬」，是為了紀念日本幕末時期的維新志士——<strong>坂本龍馬</strong>。這座機場在 2003 年正式更名，是日本歷史上<strong>第一個以人物命名的機場</strong>。以下是其命名由來：</p>
+      <ol>
+        <li><strong>坂本龍馬的故鄉：</strong><br>他於 1835 年出生在土佐藩（現在的高知縣），是促成「大政奉還」的重要推手，象徵著開拓精神。</li>
+        <li><strong>提升觀光魅力：</strong><br>2003 年是龍馬誕生 168 週年，當地民間經濟團體發起改名，希望藉由他的高知名度吸引旅客。這也首創了日本機場以人物命名的先例（如後來的鳥取沙丘柯南機場）。</li>
+        <li><strong>機場內的「龍馬」元素：</strong><br>航廈內設有坂本龍馬的巨大銅像、二樓有生平展示走廊，連當地的觀光吉祥物也經常結合龍馬的和服與靴子扮相。</li>
+      </ol>
+    </div>
+  </details>
 
   <ul class="menu-container">
     <li><a href="day1/index.html">Day 1 行程</a></li>
