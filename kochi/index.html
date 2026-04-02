@@ -28,7 +28,7 @@
     }
 
     h1 {
-      font-size: 2.2em;
+      font-size: 2em;
       margin-top: 50px;
       margin-bottom: 10px;
       letter-spacing: 2px;
@@ -99,64 +99,61 @@
       box-shadow: 0 6px 12px rgba(0, 91, 150, 0.3);
     }
 
-/* 新增：可展開的補充資訊區塊樣式 */
+/* 補充資訊區塊：輕量化設計 */
     details.info-box {
-      background-color: #ffffff;
-      border-radius: 12px;
+      /* 拿掉原本的白色背景與陰影，改用非常淡的柚子黃作為底色 */
+      background-color: rgba(242, 169, 0, 0.08); 
+      /* 改用細虛線邊框，呈現「附註」的感覺 */
+      border: 1px dashed rgba(242, 169, 0, 0.6); 
+      border-radius: 8px;
       margin-bottom: 25px;
       text-align: left;
       width: 100%;
       box-sizing: border-box;
-      max-width: 310px;
-      box-shadow: 0 4px 6px rgba(0, 91, 150, 0.1);
-      border-left: 5px solid var(--yuzu-gold, #F2A900); /* 借用一點柚子黃做區隔 */
-      padding: 15px 25px;
+      max-width: 400px; /* 寬度稍微放寬，方便閱讀 */
+      padding: 12px 20px;
       color: var(--text-navy);
-      font-size: 0.9em; /* 字體稍微縮小，區分主次 */
+      font-size: 0.85em; /* 字體再縮小一點，確立主從關係 */
+      transition: all 0.3s ease;
+    }
+
+    /* 滑鼠游標懸停時，邊框稍微變深一點點 */
+    details.info-box:hover {
+      border-color: rgba(242, 169, 0, 1);
     }
 
     details.info-box summary {
       font-weight: bold;
       color: var(--text-navy);
       cursor: pointer;
-      list-style: none; /* 隱藏部分瀏覽器預設的黑色小三角形 */
+      list-style: none;
       outline: none;
     }
 
-    /* 隱藏 Safari/Chrome 預設的黑色小三角形 */
     details.info-box summary::-webkit-details-marker {
       display: none; 
     }
 
     details.info-box summary::before {
-      content: '💡 '; /* 用燈泡 icon 取代原本的三角形 */
+      content: '💡 ';
     }
 
     /* 展開後的內部文字排版 */
     .info-content {
-      margin-top: 15px;
+      margin-top: 12px;
       line-height: 1.6;
-      border-top: 1px dashed #eee;
+      /* 裡面的分隔線也改成淡淡的虛線 */
+      border-top: 1px dashed rgba(242, 169, 0, 0.3); 
       padding-top: 10px;
     }
 
     .info-content ol {
       padding-left: 20px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     .info-content li {
-      margin-bottom: 10px;
-    }
-    
-
-    .note {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: var(--accent-cyan);
-      background-color: rgba(100, 151, 177, 0.1);
-      padding: 10px 20px;
-      border-radius: 20px;
+      margin-bottom: 8px;
     }
   </style>
 </head>
@@ -188,6 +185,7 @@
     <li><a href="day2/index.html">Day 2 行程</a></li>
     <li><a href="day3/index.html">Day 3 行程</a></li>
     <li><a href="day4/index.html">Day 4 行程</a></li>
+    <li><a href="day4/index.html">Day 5 行程</a></li>
   </ul>
 
   <div class="note">
