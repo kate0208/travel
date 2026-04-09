@@ -1,1 +1,187 @@
-day2 
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高知自由行 Day 2</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .itinerary-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            padding: 0 140px; 
+            line-height: 1.4;
+            font-size: 1.6em;
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85em;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+        }
+        .prev-day-btn { left: 0; background-color: #95a5a6; }
+        .next-day-btn { right: 0; }
+        
+        @media (max-width: 768px) {
+            h1 { padding: 0; font-size: 1.4em; }
+            .nav-btn { position: static; transform: none; display: inline-block; margin: 10px 5px; }
+        }
+
+        .event-block {
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #ecf0f1;
+        }
+        .event-block:last-child { border-bottom: none; }
+        .time-location {
+            font-size: 1.3em;
+            color: #e74c3c;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; 
+            margin-bottom: 10px;
+        }
+        .time-location::before { content: '📍'; margin-right: 8px; }
+        
+        ruby { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; }
+        rt { color: #7f8c8d; font-size: 0.6em; }
+
+        .map-link {
+            font-size: 0.65em;
+            margin-left: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4285f4; 
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: normal;
+        }
+        .action { font-size: 1.1em; margin-bottom: 15px; color: #555; }
+        .knowledge-box {
+            background-color: #fdfaf4;
+            border-left: 5px solid #d4a373;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+        }
+        .knowledge-title { font-weight: bold; color: #a67c52; margin-bottom: 12px; font-size: 1.15em; display: flex; align-items: center; }
+        .knowledge-title::before { content: '📜'; margin-right: 8px; }
+        .knowledge-content { font-size: 0.98em; color: #5d4037; }
+        .knowledge-content p { margin: 0 0 12px 0; }
+        .knowledge-content p:last-child { margin: 0; }
+        
+        .info-tag {
+            display: inline-block;
+            background-color: #e8f4fd;
+            color: #2980b9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+        .bus-tag { background-color: #e0f2f1; color: #00796b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="itinerary-container">
+        <div class="header-container">
+            <a href="day1.html" class="nav-btn prev-day-btn">⬅ Day 1</a>
+            <h1>🍱 漫步日曜市與桂濱海風</h1>
+            <a href="day3.html" class="nav-btn next-day-btn">Day 3 ➡</a>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                <ruby>日曜市<rt>にちよういち</rt></ruby> (週日市集)
+                <a href="https://maps.app.goo.gl/37" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag">建議時段：08:30 - 10:50</span>
+                <br><br>
+                從飯店步行至<ruby>追手筋<rt>おうてすじ</rt></ruby>。這條延續三百年的市集不只是買賣，更是高知濃厚「生活感」的縮影。逛完後慢慢走回飯店附近的「<ruby>播磨屋橋<rt>はりまやばし</rt></ruby>」搭車。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">生活智慧：從「藩令」演變成的庶民慶典</div>
+                <div class="knowledge-content">
+                    <p><strong>元祿時代的遺產：</strong> 日曜市始於 1690 年。當時土佐藩為了穩定民生、促進物資交換，下令開放固定區域讓農民販售。這種文化延續至今，市集劃分為不同的「<ruby>番<rt>ばん</rt></ruby>」（編號區域），有些攤位甚至是家族代代相傳了數百年。</p>
+                    <p><strong>飲食文化補充：</strong> 除了必吃的炸地瓜，這裡也有獨特的「<ruby>田舎寿司<rt>いなかずし</rt></ruby>」。不同於魚類壽司，它使用的是筍子、香菇、蒟蒻等山產，並以當地特產「<ruby>柚子<rt>ゆず</rt></ruby>」汁拌入醋飯，清爽的香氣非常適合春天。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                <ruby>桂浜<rt>かつらはま</rt></ruby> (桂濱海濱)
+                <a href="https://maps.app.goo.gl/38" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag bus-tag">去程：11:08 播磨屋橋站乘車 ➔ 11:52 抵達</span>
+                <br><br>
+                抵達終點站後，迎面而來的是深邃的太平洋。沿著弓形的海灣散步，這裡是高知人心中的精神原點。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">歷史靈魂：龍馬的眼神與和船的浪漫</div>
+                <div class="knowledge-content">
+                    <p><strong>海權國家的夢想：</strong> <ruby>坂本<rt>さかもと</rt></ruby><ruby>龍馬<rt>りょうま</rt></ruby>的銅像為何面向大海？因為他建立了日本第一個近代貿易商社「海援隊」。他的視線望向世界的盡頭，象徵著「將日本從封建轉向海洋國家」的野心。</p>
+                    <p><strong>文學與民謠：</strong> 著名的民謠《<ruby>夜來小調<rt>よさこい節</rt></ruby>》歌詞中提到「月の名所は桂浜」（月亮的名所即是桂濱）。江戶時代的土佐武士若要鍛鍊心志，常會在月夜來到這裡聽濤，感受宇宙的宏大。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                <ruby>五台山<rt>ごだいさん</rt></ruby> & <ruby>竹林寺<rt>ちくりんじ</rt></ruby>
+                <a href="https://maps.app.goo.gl/39" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag bus-tag">回程1：14:30 桂濱發車 ➔ 14:56 抵達五台山</span>
+                <span class="info-tag bus-tag">回程2：16:31 竹林寺發車 ➔ 16:47 返回市中心</span>
+                <br><br>
+                建議在「五台山觀景台」下車俯瞰整座山海交會的城市，接著沿著下坡緩步走到竹林寺，感受古寺的幽靜。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">深度美學：夢窗疏石與朝聖巡禮</div>
+                <div class="knowledge-content">
+                    <p><strong>四國遍路與五重塔：</strong> 竹林寺是「四國八十八箇所（四國遍路）」的第 31 番札所，主掌智慧的「文殊菩薩」。寺院被茂密的樹林環繞，環境極其清幽。寺內的「五重塔」是以總檜木打造，展現了日本建築極致的榫接工藝。</p>
+                    <p><strong>禪意庭園：</strong> 寺內的庭園是由「國師」<ruby>夢窗<rt>むそう</rt></ruby><ruby>疎石<rt>そせき</rt></ruby>設計的。他被譽為日本庭園設計的鼻祖，強調「山水即是佛陀的化身」。這裡的苔蘚與植栽配置會隨季節微調，能體現禪宗「無一物中無盡藏」的空靈美學。</p>
+                    <p><strong>四國遍路互動文化：</strong> 在高知，妳可能會遇到穿著白色裝束的「<ruby>お遍路さん<rt>Ohenrosan</rt></ruby>」（朝聖者）。若在竹林寺見到他們，可以試著練習用日文說聲「<ruby>頑張<rt>がんば</rt></ruby>ってください」（請加油），這是在四國文化中非常溫暖的一種互動。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
