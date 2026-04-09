@@ -1,1 +1,247 @@
-//TODO 
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高知自由行 Day 1</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .itinerary-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        /* 標題與按鈕的排版容器 */
+        .header-container {
+            position: relative;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* 前往 Day 2 按鈕樣式 */
+        .next-day-btn {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .next-day-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* 手機版排版微調 */
+        @media (max-width: 600px) {
+            .next-day-btn {
+                position: static;
+                transform: none;
+                display: inline-block;
+                margin-top: 15px;
+            }
+        }
+
+        .event-block {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ecf0f1;
+        }
+        .event-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .time-location {
+            font-size: 1.3em;
+            color: #e74c3c;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; 
+            margin-bottom: 10px;
+        }
+        .time-location::before {
+            content: '📍';
+            margin-right: 8px;
+        }
+        .map-link {
+            font-size: 0.65em;
+            margin-left: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4285f4; 
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: normal;
+            transition: background-color 0.2s;
+        }
+        .map-link:hover {
+            background-color: #3367d6;
+        }
+        .action {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .knowledge-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #2980b9;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+        }
+        .knowledge-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .knowledge-title::before {
+            content: '💡';
+            margin-right: 6px;
+        }
+        .knowledge-content {
+            margin: 0;
+            font-size: 0.95em;
+            color: #444;
+        }
+        .info-tag {
+            display: inline-block;
+            background-color: #e8f4fd;
+            color: #2980b9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="itinerary-container">
+        
+        <div class="header-container">
+            <h1>🗓️ 高知自由行 Day 1：5/16 (六)</h1>
+            <a href="../day2/index.html" class="next-day-btn">前往 Day 2 ➔</a>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                機場 ➔ 飯店寄放行李
+                <a href="https://maps.google.com/maps?cid=16460611417539091901" target="_blank" class="map-link">🗺️ 飯店 Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag">航班抵達 12:00</span>
+                <span class="info-tag">飯店 Check-in 15:00~</span>
+                <br><br>
+                班機於 12:00 降落，出關後在一樓綜合案內所領取「龍馬護照」申請明信片並蓋章。接著前往機場 1 樓門口外的 <strong>2號站牌</strong> 搭乘機場連絡巴士，於「播磨屋橋（はりまや橋）」站下車，先步行至飯店「西鐵 Inn 高知播磨屋橋」寄放行李。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">交通實用小知識</div>
+                <div class="knowledge-content">
+                    <ul>
+                        <li><strong>購票與支付方式：</strong> 巴士車上<strong>不接受</strong> Suica 等外縣市 IC 卡，也無法直接刷信用卡感應。請務必在上車前，先於機場內的「自動售票機」購買實體車票，售票機可使用<strong>現金或信用卡</strong>付款。</li>
+                        <li><strong>巴士發車時間：</strong> 機場巴士的班次通常會配合航班抵達時間。中午時段的發車時間大約落在 12:30 或 12:45 左右，車程約 25-35 分鐘即可抵達播磨屋橋。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                弘人市場 (ひろめ市場)
+                <a href="https://maps.google.com/maps?cid=10065096574213159317" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag">營業時間：09:00 - 23:00 (週日) / 10:00 - 23:00 (週一至週六)</span>
+                <br><br>
+                寄放完行李後，先來高知人的廚房填飽肚子！在熱鬧的氣氛中品嚐招牌的「稻草炙燒鰹魚」，並在此獲取「龍馬護照」的印章。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">歷史與飲食文化補充知識</div>
+                <div class="knowledge-content">
+                    <ul>
+                        <li><strong>「弘人」是誰的名字？</strong>這裡並非傳統市場，其所在地曾是幕末時期土佐藩家老（高級家臣）「深尾弘人蕃顯」的宅邸遺址。為了紀念他，因而命名為弘人市場。</li>
+                        <li><strong>高知的「客（おきゃく）」文化：</strong>高知人非常豪邁且好客，他們稱呼宴會為「おきゃく（Okyaku）」。在弘人市場，大家共用桌椅，即使是不認識的人，喝開了也會互相敬酒聊天。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                帶屋町商店街 (帯屋町商店街)
+                <a href="https://maps.google.com/maps?cid=13941454556488392951" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag">營業時間：依各店家不同，通常約 10:00 - 20:00</span>
+                <br><br>
+                吃飽後，漫步穿越這條高知市最繁華的拱廊商店街，一路往高知城的方向散步，順便逛逛在地藥妝與伴手禮。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">歷史與文化補充知識</div>
+                <div class="knowledge-content">
+                    <ul>
+                        <li><strong>江戶時代的商業中心：</strong>「帶屋町」這個名字源自於江戶時代，當時這裡聚集了許多販賣和服腰帶（帯）與布料的商人，自古以來就是高知的經濟命脈。</li>
+                        <li><strong>夜來祭 (Yosakoi) 的主舞台：</strong>每年 8 月，高知會舉辦全國聞名的「夜來祭」，帶屋町商店街就是舞者們熱烈演出的主要通道。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                高知城 (こうちじょう)
+                <a href="https://maps.google.com/maps?cid=1522037748443315989" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag">營業時間：09:00 - 17:00 (最後入館 16:30)</span>
+                <br><br>
+                趕在 16:30 前進入高知城天守閣，欣賞這座擁有超過 400 年歷史的古老名城，並在這裡收集「百大名城章」與「御城印」。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">歷史與建築補充知識</div>
+                <div class="knowledge-content">
+                    <ul>
+                        <li><strong>不被戰火摧毀的奇蹟：</strong>高知城是日本僅存的「現存12天守」之一，更是全日本唯一「本丸建築群」全數完好保留下來的城池。</li>
+                        <li><strong>防雨設計「石樋」：</strong>高知縣氣候多雨，因此在城牆上可以看到突出的「石樋（いしどい）」。這是為了讓大量的雨水直接排放到城外，避免侵蝕城牆地基的排水設計。</li>
+                        <li><strong>賢內助的典範：</strong>初代城主「山內一豐」的妻子「千代」，曾用私房錢買下一匹名馬幫助丈夫獲得賞識而立下戰功。城內有她的牽馬銅像，是日本著名的「賢妻」代表。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
