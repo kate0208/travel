@@ -1,1 +1,222 @@
-day3
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高知自由行 Day 3 - 深度文化版</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .itinerary-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            padding: 0 140px; 
+            line-height: 1.4;
+            font-size: 1.6em;
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85em;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+        }
+        .prev-day-btn { left: 0; background-color: #95a5a6; }
+        .next-day-btn { right: 0; }
+        
+        @media (max-width: 768px) {
+            h1 { padding: 0; font-size: 1.4em; }
+            .nav-btn { position: static; transform: none; display: inline-block; margin: 10px 5px; }
+        }
+
+        .event-block {
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #ecf0f1;
+        }
+        .event-block:last-child { border-bottom: none; }
+        .time-location {
+            font-size: 1.3em;
+            color: #e74c3c;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; 
+            margin-bottom: 10px;
+        }
+        .time-location::before { content: '📍'; margin-right: 8px; }
+        
+        ruby { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; }
+        rt { color: #7f8c8d; font-size: 0.6em; }
+
+        .map-link {
+            font-size: 0.65em;
+            margin-left: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4285f4; 
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: normal;
+        }
+        .action { font-size: 1.1em; margin-bottom: 15px; color: #555; }
+        .knowledge-box {
+            background-color: #fdfaf4;
+            border-left: 5px solid #d4a373;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+        }
+        .knowledge-title { font-weight: bold; color: #a67c52; margin-bottom: 12px; font-size: 1.15em; display: flex; align-items: center; }
+        .knowledge-title::before { content: '📜'; margin-right: 8px; }
+        .knowledge-content { font-size: 0.98em; color: #5d4037; }
+        .knowledge-content p { margin: 0 0 12px 0; }
+        .knowledge-content p:last-child { margin: 0; }
+        
+        .info-tag {
+            display: inline-block;
+            background-color: #e8f4fd;
+            color: #2980b9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+        .transport-tag { background-color: #e0f2f1; color: #00796b; font-weight: bold; }
+
+        /* 備案區塊特殊樣式 */
+        .plan-b-block {
+            background-color: #f8f9fa;
+            border: 2px dashed #95a5a6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .plan-b-title {
+            color: #7f8c8d;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .plan-b-title::before { content: '⏱️'; margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+    <div class="itinerary-container">
+        <div class="header-container">
+            <a href="day2.html" class="nav-btn prev-day-btn">⬅ Day 2</a>
+            <h1>💧 Day 3 ｜ 5/18 (一) 仁淀藍尋蹤：中津溪谷與佐川町</h1>
+            <a href="day4.html" class="nav-btn next-day-btn">Day 4 ➡</a>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                <ruby>高知駅<rt>こうちえき</rt></ruby> ➔ <ruby>佐川駅<rt>さかわえき</rt></ruby>
+                <a href="https://www.google.com/maps/search/?api=1&query=帯屋町商店街0" target="_blank" class="map-link">🗺️ 高知站 Map</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=帯屋町商店街1" target="_blank" class="map-link">🗺️ 佐川站 Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag transport-tag">JR 列車：09:34 發車 ➔ 10:27 抵達佐川</span>
+                <span class="info-tag transport-tag">黑岩巴士：10:55 發車 ➔ 11:29 抵達名野川</span>
+                <br><br>
+                從飯店出發前往 JR 高知站，搭乘 09:34 的列車前往佐川。抵達後有約 25 分鐘的時間可以在站前稍作休息，隨後轉乘開往「川渡」方向的廣域線巴士，在「<ruby>名野川<rt>なのかわ</rt></ruby>」站下車，即可進入溪谷入口。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">領地與學問：佐川町的來歷</div>
+                <div class="knowledge-content">
+                    <p><strong>家老的封地：</strong> 為什麼深山旁的佐川會有一座車站與完整的町並？在江戶時代，這裡是土佐藩最高級別別家老（首席大臣）「深尾氏」的領地。深尾氏非常重視教育與文化，這也讓佐川孕育出了許多學者，包含被稱為「日本植物學之父」的<ruby>牧野<rt>まきの</rt></ruby>富太郎。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                <ruby>中津渓谷<rt>なかつけいこく</rt></ruby> (中津溪谷)
+                <a href="https://www.google.com/maps/search/?api=1&query=帯屋町商店街2" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag">停留建議：11:30 - 14:40</span>
+                <br><br>
+                下公車後步行約 10 分鐘即可抵達溪谷步道。沿著步道深入，沿途可見著名的「仁淀藍」溪水、巨大的紅色岩石與充滿震撼力的「雨竜瀑布」。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">自然巡禮：水神傳說與七福神</div>
+                <div class="knowledge-content">
+                    <p><strong>仁淀藍的奧秘：</strong> 仁淀川以極高的透明度連續多年被評為日本最清澈的河流，這種獨特的青藍色被稱為「仁淀藍」。中津溪谷是觀察這種色彩的最佳地點之一，特別是在陽光直射的正午時分，溪水會呈現如藍寶石般的透徹感。</p>
+                    <p><strong>雨竜之瀑與七福神：</strong> 溪谷深處的「<ruby>雨竜<rt>うりゅう</rt></ruby>の<ruby>滝<rt>たき</rt></ruby>」，自古被視為水神居住的地點。為了守護前來探訪的旅人，溪谷沿途的岩石與轉角處安置了「七福神」石像。在漫步的過程中，試著找齊這七尊石像吧！</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                <ruby>名野川<rt>なのかわ</rt></ruby> ➔ <ruby>佐川<rt>さかわ</rt></ruby> ➔ <ruby>高知<rt>こうち</rt></ruby>
+            </div>
+            <div class="action">
+                <span class="info-tag transport-tag">巴士回程：14:50 名野川發車 ➔ 15:28 抵達佐川</span>
+                <span class="info-tag transport-tag">JR 回程：預計搭乘 15:37 列車返回</span>
+                <br><br>
+                回到原本下車處對面的站牌，搭乘 14:50 的回程巴士返回佐川車站。
+            </div>
+        </div>
+
+        <div class="plan-b-block">
+            <div class="plan-b-title">Plan B：如果錯過 15:37 的火車？</div>
+            <div class="action">
+                不用緊張！下一班開往高知的列車是 <strong>16:38 的「土讚線特急」</strong>（車程僅需約 26 分鐘，需補特急券）。從車站徒步出發只要 3-10 分鐘，就能逛完這座保存完整的「白壁小鎮」，讓一個多小時的等待時間變成深度探索：
+            </div>
+            
+            <ul style="color: #555; font-size: 1.05em; line-height: 1.8;">
+                <li>
+                    <strong><ruby>旧浜口邸<rt>きゅうはまぐちてい</rt></ruby>：</strong> 
+                    (<a href="https://maps.google.com/?cid=159913058577626226&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link" style="margin-left:0;">🗺️ Map</a>) 
+                    車站走出來不到 5 分鐘。這是一棟江戶時代的豪商古厝，現在改建成了町民交流空間。可以在這裡點杯咖啡，坐在緣側休息，順便買些佐川當地的文創伴手禮。
+                </li>
+                <li>
+                    <strong><ruby>司牡丹酒造<rt>つかさぼたんしゅぞう</rt></ruby> 的白壁街道：</strong> 
+                    (<a href="https://maps.google.com/?cid=15592730472218964369&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link" style="margin-left:0;">🗺️ Map</a>) 
+                    沿著車站前方的大路走，會看到長達數百公尺的白色牆面建築。這是有著四百年歷史的著名酒廠「司牡丹」。佐川之所以能釀出名酒，全仰賴仁淀川純淨的水源。即使不喝酒，走在充滿米香與歷史感的白壁旁拍照也非常有氣氛。
+                </li>
+                <li>
+                    <strong><ruby>青源寺<rt>せいげんじ</rt></ruby> 庭園：</strong> 
+                    (<a href="https://maps.google.com/?cid=201631988222000463&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link" style="margin-left:0;">🗺️ Map</a>) 
+                    若腳力許可，鎮上的青源寺擁有一座非常寧靜的庭園。這裡也是前面提到統治此地的「深尾氏」的菩提寺（家族寺院）。
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
