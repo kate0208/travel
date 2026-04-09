@@ -29,10 +29,13 @@
             padding-bottom: 15px;
             margin-bottom: 30px;
         }
+        
         h1 {
             color: #2c3e50;
             margin: 0;
-            padding: 0;
+            /* 關鍵修正：左右保留 130px 的安全距離，確保文字不會與按鈕重疊 */
+            padding: 0 130px; 
+            line-height: 1.4;
         }
         
         /* 前往 Day 2 按鈕樣式 */
@@ -50,17 +53,23 @@
             font-size: 0.9em;
             transition: background-color 0.2s;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            white-space: nowrap; /* 確保按鈕文字不會斷行 */
         }
         .next-day-btn:hover {
             background-color: #2980b9;
         }
         
-        @media (max-width: 600px) {
+        /* 螢幕小於 768px 時的排版優化 */
+        @media (max-width: 768px) {
+            h1 {
+                padding: 0; /* 取消安全距離 */
+                font-size: 1.6em; /* 稍微縮小字體 */
+            }
             .next-day-btn {
-                position: static;
+                position: static; /* 取消絕對定位 */
                 transform: none;
                 display: inline-block;
-                margin-top: 15px;
+                margin-top: 15px; /* 與標題保持距離 */
             }
         }
 
@@ -160,14 +169,14 @@
     <div class="itinerary-container">
         
         <div class="header-container">
-            <h1>🚩 Day 1｜初見高知：名城、微醺與炙燒鰹魚</h1>
+            <h1>🚩 Day 1 ｜ 初見高知：名城、微醺與炙燒鰹魚</h1>
             <a href="day2.html" class="next-day-btn">前往 Day 2 ➔</a>
         </div>
 
         <div class="event-block">
             <div class="time-location">
                 機場 ➔ 飯店寄放行李
-                <a href="https://www.google.com/maps/place/?q=place_id:ChIJsTr_OkgZTjURgjmwqUNFCfs" target="_blank" class="map-link">🗺️ 飯店 Map</a>
+                <a href="https://maps.app.goo.gl/w137c6TqXb6AFTgLA" target="_blank" class="map-link">🗺️ 飯店 Map</a>
             </div>
             <div class="action">
                 <span class="info-tag">航班抵達 12:00</span>
@@ -189,7 +198,7 @@
         <div class="event-block">
             <div class="time-location">
                 弘人市場 (ひろめ<ruby>市場<rt>いちば</rt></ruby>)
-                <a href="https://www.google.com/maps/place/?q=place_id:ChIJ1w_oDToZTjUR3QutG7QRnZk" target="_blank" class="map-link">🗺️ Google Map</a>
+                <a href="https://maps.app.goo.gl/pWjH2q9wF8v3S8d78" target="_blank" class="map-link">🗺️ Google Map</a>
             </div>
             <div class="action">
                 <span class="info-tag">營業時間：09:00 - 23:00 (週日) / 10:00 - 23:00 (週一至週六)</span>
@@ -210,7 +219,7 @@
         <div class="event-block">
             <div class="time-location">
                 帶屋町商店街 (<ruby>帯屋町商店街<rt>おびやまちしょうてんがい</rt></ruby>)
-                <a href="https://www.google.com/maps/place/?q=place_id:ChIJrer7mkkZTjURwXtj7GUydzg" target="_blank" class="map-link">🗺️ Google Map</a>
+                <a href="https://maps.app.goo.gl/9ZpP4R6fCjH8zY8t5" target="_blank" class="map-link">🗺️ Google Map</a>
             </div>
             <div class="action">
                 <span class="info-tag">營業時間：依各店家不同，通常約 10:00 - 20:00</span>
@@ -231,7 +240,7 @@
         <div class="event-block">
             <div class="time-location">
                 高知城 (<ruby>高知城<rt>こうちじょう</rt></ruby>)
-                <a href="https://www.google.com/maps/place/?q=place_id:ChIJ_ZQBiCQZTjURDgmM1D29DRU" target="_blank" class="map-link">🗺️ Google Map</a>
+                <a href="https://maps.app.goo.gl/4Pj7Zk6H2Z2N2x2C7" target="_blank" class="map-link">🗺️ Google Map</a>
             </div>
             <div class="action">
                 <span class="info-tag">營業時間：09:00 - 17:00 (最後入館 16:30)</span>
