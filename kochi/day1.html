@@ -20,8 +20,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 30px;
         }
-        
-        /* 標題與按鈕的排版容器 */
+    
         .header-container {
             position: relative;
             text-align: center;
@@ -52,34 +51,20 @@
             transition: background-color 0.2s;
             white-space: nowrap;
         }
-        .next-day-btn:hover {
-            background-color: #2980b9;
-        }
+        .prev-day-btn { left: 0; background-color: #95a5a6; }
+        .next-day-btn { right: 0; }
         
-        /* 螢幕小於 768px 時的排版優化 */
-        @media (max-width: 768px) {
-            h1 {
-                padding: 0; /* 取消安全距離 */
-                font-size: 1.6em; /* 稍微縮小字體 */
-            }
-            .next-day-btn {
-                position: static; /* 取消絕對定位 */
-                transform: none;
-                display: inline-block;
-                margin-top: 15px; /* 與標題保持距離 */
-            }
+       @media (max-width: 768px) {
+            h1 { padding: 0; font-size: 1.4em; }
+            .nav-btn { position: static; transform: none; display: inline-block; margin: 10px 5px; }
         }
 
         .event-block {
-            margin-bottom: 35px;
-            padding-bottom: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
             border-bottom: 1px dashed #ecf0f1;
         }
-        .event-block:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+        .event-block:last-child { border-bottom: none; }
         .time-location {
             font-size: 1.3em;
             color: #e74c3c;
