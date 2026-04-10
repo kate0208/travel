@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高知自由行 Day 1</title>
+    <title>高知自由行 Day 1 - 深度文化版</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
@@ -20,7 +20,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 30px;
         }
-    
         .header-container {
             position: relative;
             text-align: center;
@@ -28,8 +27,7 @@
             padding-bottom: 15px;
             margin-bottom: 30px;
         }
-        
-       h1 {
+        h1 {
             color: #2c3e50;
             margin: 0;
             padding: 0 140px; 
@@ -37,6 +35,7 @@
             font-size: 1.6em;
         }
         
+        /* 導航按鈕樣式 */
         .nav-btn {
             position: absolute;
             top: 50%;
@@ -51,10 +50,12 @@
             transition: background-color 0.2s;
             white-space: nowrap;
         }
+        /* 回首頁按鈕使用灰色系以區分 */
         .prev-day-btn { left: 0; background-color: #95a5a6; }
-        .nav-btn{ right: 0; }
+        .next-day-btn { right: 0; }
+        .nav-btn:hover { opacity: 0.8; }
         
-       @media (max-width: 768px) {
+        @media (max-width: 768px) {
             h1 { padding: 0; font-size: 1.4em; }
             .nav-btn { position: static; transform: none; display: inline-block; margin: 10px 5px; }
         }
@@ -74,19 +75,10 @@
             flex-wrap: wrap; 
             margin-bottom: 10px;
         }
-        .time-location::before {
-            content: '📍';
-            margin-right: 8px;
-        }
+        .time-location::before { content: '📍'; margin-right: 8px; }
         
-        /* 日文拼音標籤樣式微調 */
-        ruby {
-            font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-        }
-        rt {
-            color: #7f8c8d;
-            font-size: 0.6em;
-        }
+        ruby { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; }
+        rt { color: #7f8c8d; font-size: 0.6em; }
 
         .map-link {
             font-size: 0.65em;
@@ -97,39 +89,23 @@
             padding: 5px 10px;
             border-radius: 20px;
             font-weight: normal;
-            transition: background-color 0.2s;
         }
-        .map-link:hover {
-            background-color: #3367d6;
-        }
-        .action {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            color: #555;
-        }
+
+        .action { font-size: 1.1em; margin-bottom: 15px; color: #555; }
+        
         .knowledge-box {
-            background-color: #f8f9fa;
-            border-left: 5px solid #2980b9;
-            padding: 15px;
+            background-color: #fdfaf4;
+            border-left: 5px solid #d4a373;
+            padding: 20px;
             border-radius: 0 8px 8px 0;
             margin-top: 15px;
         }
-        .knowledge-title {
-            font-weight: bold;
-            color: #2980b9;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-        .knowledge-title::before {
-            content: '💡';
-            margin-right: 6px;
-        }
-        .knowledge-content {
-            margin: 0;
-            font-size: 0.95em;
-            color: #444;
-        }
+        .knowledge-title { font-weight: bold; color: #a67c52; margin-bottom: 12px; font-size: 1.15em; display: flex; align-items: center; }
+        .knowledge-title::before { content: '📜'; margin-right: 8px; }
+        .knowledge-content { font-size: 0.98em; color: #5d4037; }
+        .knowledge-content p { margin: 0 0 12px 0; }
+        .knowledge-content p:last-child { margin: 0; }
+        
         .info-tag {
             display: inline-block;
             background-color: #e8f4fd;
@@ -140,107 +116,119 @@
             margin-right: 10px;
             margin-bottom: 5px;
         }
-        ul {
-            margin-top: 5px;
-            padding-left: 20px;
+
+        .shuttle-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .shuttle-table th, .shuttle-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .shuttle-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .highlight-time {
+            color: #e74c3c;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <div class="itinerary-container">
-        
         <div class="header-container">
-            <h1>🚩 初見高知：名城、微醺與炙燒鰹魚</h1>
-            <a href="day2.html" class="nav-btn">Day 2 ➡</a>
+            <a href="index.html" class="nav-btn prev-day-btn">🏠 Home</a>
+            <h1>🐴 初見高知：在賽馬場與商店街感受土佐風情</h1>
+            <a href="day2.html" class="nav-btn next-day-btn">Day 2 ➡</a>
         </div>
 
         <div class="event-block">
             <div class="time-location">
                 機場 ➔ 飯店寄放行李
-                <a href="https://maps.app.goo.gl/avrnnDEcdEsrMUUs9" target="_blank" class="map-link">🗺️ 飯店 Map</a>
+                <a href="https://www.google.com/maps/place/?q=place_id:ChIJsTr_OkgZTjURgjmwqUNFCfs" target="_blank" class="map-link">🗺️ 飯店 Map</a>
             </div>
             <div class="action">
                 <span class="info-tag">航班抵達 12:00</span>
                 <span class="info-tag">飯店 Check-in 15:00~</span>
                 <br><br>
-                班機於 12:00 降落，出關後在一樓綜合案內所領取「<ruby>龍馬<rt>りょうま</rt></ruby>護照」申請明信片並蓋章。接著前往機場 1 樓門口外的 <strong>2號站牌</strong> 搭乘機場連絡巴士，於「<ruby>播磨屋橋<rt>はりまやばし</rt></ruby>」站下車，先步行至飯店「<ruby>西鉄<rt>にしてつ</rt></ruby>イン<ruby>高知<rt>こうち</rt></ruby>はりまや<ruby>橋<rt>ばし</rt></ruby>」寄放行李。
+                班機降落後，搭乘機場巴士於「<ruby>播磨屋橋<rt>はりまやばし</rt></ruby>」下車，步行至飯店寄放行李。接著準備前往「南播磨屋橋」搭乘接駁車。
             </div>
             <div class="knowledge-box">
-                <div class="knowledge-title">交通實用小知識</div>
+                <div class="knowledge-title">交通提醒</div>
                 <div class="knowledge-content">
-                    <ul>
-                        <li><strong>購票與支付方式：</strong> 巴士車上<strong>不接受</strong> Suica 等外縣市 IC 卡，也無法直接刷信用卡感應。請務必在上車前，先於機場內的「自動售票機」購買實體車票，售票機可使用<strong>現金或信用卡</strong>付款。</li>
-                        <li><strong>巴士發車時間：</strong> 機場巴士的班次通常會配合航班抵達時間。中午時段的發車時間大約落在 12:30 或 12:45 左右，車程約 25-35 分鐘即可抵達<ruby>播磨屋橋<rt>はりまやばし</rt></ruby>。</li>
-                    </ul>
+                    <p>請確認您的時間，建議搭乘 <strong>15:07</strong> 或 <strong>16:37</strong> 的免費接駁車前往競馬場。接駁車搭乘處位於「南播磨屋橋」巴士站。</p>
                 </div>
             </div>
         </div>
 
         <div class="event-block">
             <div class="time-location">
-                弘人市場 (ひろめ<ruby>市場<rt>いちば</rt></ruby>)
-                <a href="https://maps.app.goo.gl/CMLui7zXLXcs3k3e9" target="_blank" class="map-link">🗺️ Google Map</a>
+                <ruby>高知競馬場<rt>こうちけいばじょう</rt></ruby>
+                <a href="https://maps.app.goo.gl/YyQ5D7YvM4yHn5XF6" target="_blank" class="map-link">🗺️ Google Map</a>
             </div>
             <div class="action">
-                <span class="info-tag">營業時間：09:00 - 23:00 (週日) / 10:00 - 23:00 (週一至週六)</span>
-                <br><br>
-                寄放完行李後，先來高知人的廚房填飽肚子！在熱鬧的氣氛中品嚐招牌的「稻草炙燒鰹魚」，並在此獲取「<ruby>龍馬<rt>りょうま</rt></ruby>護照」的印章。
+                <span class="info-tag">免費接駁巴士時刻表</span>
+                <table class="shuttle-table">
+                    <tr>
+                        <th>南播磨屋橋 (去程)</th>
+                        <th>抵達競馬場</th>
+                        <th>競馬場 (回程)</th>
+                        <th>抵達南播磨屋橋</th>
+                    </tr>
+                    <tr>
+                        <td>13:37</td>
+                        <td>14:00</td>
+                        <td>17:15</td>
+                        <td>17:38</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-time">15:07</td>
+                        <td>15:30</td>
+                        <td>18:40</td>
+                        <td>19:03</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-time">16:37</td>
+                        <td>17:00</td>
+                        <td>20:00</td>
+                        <td>20:23</td>
+                    </tr>
+                    <tr>
+                        <td>18:07</td>
+                        <td>18:30</td>
+                        <td>21:10</td>
+                        <td>21:33</td>
+                    </tr>
+                </table>
             </div>
             <div class="knowledge-box">
-                <div class="knowledge-title">歷史與飲食文化補充知識</div>
+                <div class="knowledge-title">📜 奇蹟的落敗馬與夜間賽馬</div>
                 <div class="knowledge-content">
-                    <ul>
-                        <li><strong>「弘人」是誰的名字？</strong>這裡並非傳統市場，其所在地曾是幕末時期土佐藩家老（高級家臣）「深尾<ruby>弘人<rt>ひろめ</rt></ruby>蕃顯」的宅邸遺址。為了紀念他，因而命名為弘人市場。</li>
-                        <li><strong>高知的「客（おきゃく）」文化：</strong>高知人非常豪邁且好客，他們稱呼宴會為「おきゃく（Okyaku）」。在弘人市場，大家共用桌椅，即使是不認識的人，喝開了也會互相敬酒聊天。</li>
-                    </ul>
+                    <p><strong>四國唯一的賽馬場：</strong> 高知競馬場以「夜間賽馬（夜さこいナイター）」聞名，是日本少數在燈光照射下進行比賽的場地。這裡最感人的歷史是傳奇名駒<strong>「春麗（ハルウララ）」</strong>。雖然她職業生涯連敗 113 場，卻因為永不放棄的精神紅遍日本，成為許多人心靈的寄託。</p>
                 </div>
             </div>
         </div>
 
         <div class="event-block">
             <div class="time-location">
-                帶屋町商店街 (<ruby>帯屋町商店街<rt>おびやまちしょうてんがい</rt></ruby>)
-                <a href="https://maps.app.goo.gl/6QvsBqbioaKP6FdS8" target="_blank" class="map-link">🗺️ Google Map</a>
+                <ruby>弘人市場<rt>ひろめいちば</rt></ruby> & <ruby>帯屋町<rt>おびやまち</rt></ruby>
+                <a href="https://www.google.com/maps/place/?q=place_id:ChIJ1w_oDToZTjUR3QutG7QRnZk" target="_blank" class="map-link">🗺️ 弘人市場 Map</a>
             </div>
             <div class="action">
-                <span class="info-tag">營業時間：依各店家不同，通常約 10:00 - 20:00</span>
-                <br><br>
-                吃飽後，漫步穿越這條高知市最繁華的拱廊商店街，一路往<ruby>高知城<rt>こうちじょう</rt></ruby>的方向散步，順便逛逛在地藥妝與伴手禮。
+                從競馬場搭乘接駁車回市中心後，剛好可以去弘人市場享受熱鬧的晚宴文化。
             </div>
             <div class="knowledge-box">
-                <div class="knowledge-title">歷史與文化補充知識</div>
+                <div class="knowledge-title">📜 飲食文化</div>
                 <div class="knowledge-content">
-                    <ul>
-                        <li><strong>江戶時代的商業中心：</strong>「<ruby>帯屋町<rt>おびやまち</rt></ruby>」這個名字源自於江戶時代，當時這裡聚集了許多販賣和服腰帶（帯）與布料的商人，自古以來就是高知的經濟命脈。</li>
-                        <li><strong>夜來祭 (よさこい) 的主舞台：</strong>每年 8 月，高知會舉辦全國聞名的「夜來祭」，帶屋町商店街就是舞者們熱烈演出的主要通道。</li>
-                    </ul>
+                    <p>在高知，喝酒聚會被稱為「<ruby>客<rt>おきゃく</rt></ruby>」。弘人市場就像是一個巨大的宴會場，即使互不相識，也能在這裡共同舉杯聊天，是體驗土佐人豪爽性格的最佳地點。</p>
                 </div>
             </div>
         </div>
-
-        <div class="event-block">
-            <div class="time-location">
-                高知城 (<ruby>高知城<rt>こうちじょう</rt></ruby>)
-                <a href="https://maps.app.goo.gl/ihYHhxXSdYWPQAXf6" target="_blank" class="map-link">🗺️ Google Map</a>
-            </div>
-            <div class="action">
-                <span class="info-tag">營業時間：09:00 - 17:00 (最後入館 16:30)</span>
-                <br><br>
-                趕在 16:30 前進入<ruby>高知城<rt>こうちじょう</rt></ruby>天守閣，欣賞這座擁有超過 400 年歷史的古老名城，並在這裡收集「百大名城章」與「御城印」。
-            </div>
-            <div class="knowledge-box">
-                <div class="knowledge-title">歷史與建築補充知識</div>
-                <div class="knowledge-content">
-                    <ul>
-                        <li><strong>不被戰火摧毀的奇蹟：</strong><ruby>高知城<rt>こうちじょう</rt></ruby>是日本僅存的「現存12天守」之一，更是全日本唯一「本丸建築群」全數完好保留下來的城池。</li>
-                        <li><strong>防雨設計「石樋」：</strong>高知縣氣候多雨，因此在城牆上可以看到突出的「<ruby>石樋<rt>いしどい</rt></ruby>」。這是為了讓大量的雨水直接排放到城外，避免侵蝕城牆地基的排水設計。</li>
-                        <li><strong>賢內助的典範：</strong>初代城主「山內一豐」的妻子「千代」，曾用私房錢買下一匹名馬幫助丈夫獲得賞識而立下戰功。城內有她的牽馬銅像，是日本著名的「賢妻」代表。</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 </body>
