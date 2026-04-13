@@ -1,1 +1,186 @@
-day4
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高知自由行 Day 4</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 10px;
+        }
+        .itinerary-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 10px;
+        }
+        .header-container {
+            position: relative;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            padding: 0 140px; 
+            line-height: 1.4;
+            font-size: 1.4em;
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85em;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+        }
+        .prev-day-btn { left: 0; background-color: #95a5a6; }
+        .next-day-btn { right: 0; }
+        
+        @media (max-width: 768px) {
+            h1 { padding: 0; font-size: 1.4em; }
+            .nav-btn { position: static; transform: none; display: inline-block; margin: 10px 5px; }
+        }
+
+        .event-block {
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #ecf0f1;
+        }
+        .event-block:last-child { border-bottom: none; }
+        .time-location {
+            font-size: 1.3em;
+            color: #e74c3c;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; 
+            margin-bottom: 10px;
+        }
+        .time-location::before { content: '📍'; margin-right: 8px; }
+        
+        ruby { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; }
+        rt { color: #7f8c8d; font-size: 0.6em; }
+
+        .map-link {
+            font-size: 0.65em;
+            margin-left: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4285f4; 
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: normal;
+        }
+        
+        .action { font-size: 1.1em; margin-bottom: 15px; color: #555; }
+        .knowledge-box {
+            background-color: #fdfaf4;
+            border-left: 5px solid #d4a373;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+        }
+        .knowledge-title { font-weight: bold; color: #a67c52; margin-bottom: 12px; font-size: 1.15em; display: flex; align-items: center; }
+        .knowledge-title::before { content: '📜'; margin-right: 8px; }
+        .knowledge-content { font-size: 0.98em; color: #5d4037; }
+        .knowledge-content p { margin: 0 0 12px 0; }
+        .knowledge-content p:last-child { margin: 0; }
+        
+        .info-tag {
+            display: inline-block;
+            background-color: #e8f4fd;
+            color: #2980b9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+        .transport-tag { background-color: #e0f2f1; color: #00796b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="itinerary-container">
+        <div class="header-container">
+            <a href="day3.html" class="nav-btn prev-day-btn">⬅ Day 3</a>
+            <a href="day5.html" class="nav-btn next-day-btn">Day 5 ➡</a>
+            <h1>🏯 歷史見證與質感生活</h1>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                <ruby>高知城<rt>こうちじょう</rt></ruby> (高知城)
+                <a href="https://maps.app.goo.gl/5a3a3Z85dMZjiLbD9" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag">開放時間：09:00 - 17:00</span>
+                <span class="info-tag">重點：百名城章收集</span>
+                <br><br>
+                早上前往日本「現存 12 天守」之一的高知城。這裡不僅是歷史建築的瑰寶，更是俯瞰高知市區的絕佳地點。請記得在管理事務所或入口處蓋下極具紀念意義的「日本百名城章」。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">文化背景：初代藩主與賢內助的故事</div>
+                <div class="knowledge-content">
+                    <p><strong>功名十字路：</strong> 高知城的修建者是關原之戰後入主土佐的「<ruby>山内一豊<rt>やまうちかつとよ</rt></ruby>」。關於他最著名的故事是他的妻子「千代」，曾用私房錢為丈夫買下名馬，助其立功，傳為日本「賢內助」的佳話。</p>
+                    <p><strong>奇蹟的天守閣：</strong> 高知城是全日本唯一一個「本丸」建築群（包含天守閣、御殿、城門等）全都完整保留下來的城池。現存的天守是在 1727 年大火燒毀後，於 1749 年依原樣重建的，距今已有超過 270 年的歷史。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                OMO7 <ruby>高知<rt>こうち</rt></ruby> by <ruby>星野<rt>ほしの</rt></ruby>リゾート
+                <a href="https://maps.app.goo.gl/ALGCTnUkaDCdc36Z7" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag transport-tag">路面電車：往後免方向 ➔ 菜園場町站</span>
+                <br><br>
+                帶著行李搭乘<ruby>路面電車<rt>ろめんでんしゃ</rt></ruby>前往位於「菜園場町」站的飯店寄放行李。這間飯店由星野集團經營，設計融入了高知當地的「夜來祭」與「土佐宴客」文化。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">飯店文化：OMO 系列的在地探索</div>
+                <div class="knowledge-content">
+                    <p><strong>OMO Ranger：</strong> OMO 飯店的特色之一是提供「在地嚮導（Go-KINJO）」，會在地圖上標註員工私藏的周邊美食與景點，寄放完行李後不妨先看看飯店內的地圖推薦。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-block">
+            <div class="time-location">
+                Aeon Mall <ruby>高知<rt>こうち</rt></ruby>
+                <a href="https://maps.app.goo.gl/qXpUrMT2d9p6YQqv9" target="_blank" class="map-link">🗺️ Google Map</a>
+            </div>
+            <div class="action">
+                <span class="info-tag transport-tag">方案 A：步行約 13 分鐘</span>
+                <span class="info-tag transport-tag">方案 B：電車至播磨屋橋轉乘往高知站 ➔ 北口步行約10分鐘</span>
+                <br><br>
+                下午前往高知市內最大的購物中心 Aeon Mall。這裡集合了藥妝、服飾、日用品與各類餐飲，是採買伴手禮與享受輕鬆購物時光的最佳選擇。
+            </div>
+            <div class="knowledge-box">
+                <div class="knowledge-title">購物小叮嚀</div>
+                <div class="knowledge-content">
+                    <p>Aeon Mall 提供多樣化的免稅服務，若是計畫採買較大量的藥妝或日系品牌商品，記得隨身攜帶護照喔！</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
