@@ -106,7 +106,7 @@
       /* 改用細虛線邊框，呈現「附註」的感覺 */
       border: 1px dashed rgba(242, 169, 0, 0.6); 
       border-radius: 8px;
-      margin-bottom: 25px;
+      margin-bottom: 15px; /* 稍微縮小間距，讓兩個摺疊區塊更緊湊 */
       text-align: left;
       width: 100%;
       box-sizing: border-box;
@@ -147,13 +147,28 @@
       padding-top: 10px;
     }
 
+    .info-content p {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
     .info-content ol {
       padding-left: 20px;
       margin-top: 8px;
+      margin-bottom: 0;
     }
 
     .info-content li {
       margin-bottom: 8px;
+    }
+
+    /* 順手幫您補上最下方溫馨提醒的 CSS */
+    .note {
+      margin-top: 30px;
+      color: var(--accent-cyan);
+      font-weight: bold;
+      font-size: 0.9em;
+      letter-spacing: 1px;
     }
   </style>
 </head>
@@ -167,6 +182,19 @@
     去程 5/16 TPE-KCZ 08:20 - 12:00<br>
     回程 5/20 KCZ-TPE 14:00 - 15:20
   </div>
+
+  <details class="info-box">
+    <summary>關於高知：四國的秘境與熱情之國</summary>
+    <div class="info-content">
+      <p>高知縣位於日本四國南部，擁抱廣闊的太平洋，是個充滿自然奇景與豪邁人情的迷人城市。這趟旅程將帶您體驗以下四大魅力：</p>
+      <ol>
+        <li><strong>奇蹟的清流：</strong> 擁有被譽為「日本最美河川」的仁淀川，其極致清澈的湛藍水色被稱為「仁淀藍」。</li>
+        <li><strong>靈魂美食：</strong> 絕對不能錯過「稻草炙燒鰹魚 (鰹のたたき)」！大火炙烤鎖住鮮甜，搭配在地的柚子醋或天日鹽，是最高級的享受。</li>
+        <li><strong>祭典與宴客文化：</strong> 發源自高知的「夜來祭 (よさこい)」熱血沸騰；而當地特有的「客 (おきゃく)」宴會文化，讓市集每天都像是一場歡樂的大型酒會。</li>
+        <li><strong>歷史的交匯點：</strong> 這裡不僅是幕末英雄坂本龍馬的故鄉，更擁有日本唯一本丸建築群完整保留下來的名城「高知城」。</li>
+      </ol>
+    </div>
+  </details>
 
   <details class="info-box">
     <summary>小知識：為什麼叫龍馬機場？</summary>
@@ -188,9 +216,6 @@
     <li><a href="day5.html">Day 5 行程</a></li>
   </ul>
 
-  <div class="note">
-    ✨ 溫馨提醒：記得帶上御朱印帳與收集卡冊喔！
-  </div>
 
 </body>
 </html>
