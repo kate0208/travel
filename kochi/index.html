@@ -120,8 +120,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px; /* 更大的圈圈 */
-      height: 50px;
+      width: 40px; /* 更大的圈圈 */
+      height: 40px;
       background-color: #ffffff;
       border: 5px solid var(--btn-blue);
       border-radius: 50%;
@@ -187,6 +187,36 @@
         margin-right: 0;
         margin-bottom: 12px;
         left: auto; /* 恢復位置 */
+      }
+    }
+
+    /* --- 路線圖文字群組排版 --- */
+    .day-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* 電腦版標題置中 */
+      text-align: center;
+    }
+
+    .day-main {
+      display: flex;
+      align-items: center;
+    }
+
+    /* 每天的副標題樣式 */
+    .day-title {
+      font-size: 0.75em;
+      color: #6497B1; /* 呼應主題的淺藍色 */
+      margin-top: 6px;
+      font-weight: normal;
+      line-height: 1.3;
+    }
+
+    /* 針對手機版的文字對齊微調 */
+    @media (max-width: 600px) {
+      .day-info {
+        align-items: flex-start; /* 手機版文字靠左對齊，配合直線軌道 */
+        text-align: left;
       }
     }
 
@@ -314,31 +344,46 @@
     <li>
       <a href="day1.html">
         <div class="station-node"></div>
-        <span class="day-icon">🐴</span><span>Day 1</span>
+        <div class="day-info">
+          <div class="day-main"><span class="day-icon">🐴</span><span>Day 1</span></div>
+          <div class="day-title">初見高知：賽馬與土佐風情</div>
+        </div>
       </a>
     </li>
     <li>
       <a href="day2.html">
         <div class="station-node"></div>
-        <span class="day-icon">🍱</span><span>Day 2</span>
+        <div class="day-info">
+          <div class="day-main"><span class="day-icon">🍱</span><span>Day 2</span></div>
+          <div class="day-title">漫步日曜市與桂濱海風</div>
+        </div>
       </a>
     </li>
     <li>
       <a href="day3.html">
         <div class="station-node"></div>
-        <span class="day-icon">💧</span><span>Day 3</span>
+        <div class="day-info">
+          <div class="day-main"><span class="day-icon">💧</span><span>Day 3</span></div>
+          <div class="day-title">仁淀藍尋蹤：中津溪谷與佐川町</div>
+        </div>
       </a>
     </li>
     <li>
       <a href="day4.html">
         <div class="station-node"></div>
-        <span class="day-icon">🏯</span><span>Day 4</span>
+        <div class="day-info">
+          <div class="day-main"><span class="day-icon">🏯</span><span>Day 4</span></div>
+          <div class="day-title">歷史見證與質感生活</div>
+        </div>
       </a>
     </li>
     <li>
       <a href="day5.html">
         <div class="station-node"></div>
-        <span class="day-icon">✈️</span><span>Day 5</span>
+        <div class="day-info">
+          <div class="day-main"><span class="day-icon">✈️</span><span>Day 5</span></div>
+          <div class="day-title">晨光咖啡與滿載而歸</div>
+        </div>
       </a>
     </li>
   </ul>
