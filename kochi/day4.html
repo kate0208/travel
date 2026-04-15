@@ -115,6 +115,53 @@
             margin-bottom: 5px;
         }
         .transport-tag { background-color: #e0f2f1; color: #00796b; font-weight: bold; }
+
+        /* 互動式便利貼樣式 */
+        .sticky-note-container {
+            background-color: #fffde7; /* 溫暖的淡黃色 */
+            border-left: 5px solid #fbc02d;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .sticky-note-header {
+            font-weight: bold;
+            color: #f57f17;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+        .sticky-note {
+            width: 100%;
+            min-height: 120px;
+            background: transparent;
+            border: 1px dashed #ffd54f;
+            border-radius: 4px;
+            resize: vertical; /* 允許使用者在手機上往下拉伸放大空間 */
+            font-family: inherit;
+            font-size: 1.05em;
+            color: #555;
+            padding: 10px;
+            box-sizing: border-box;
+            outline: none;
+            line-height: 1.6;
+            transition: background-color 0.3s;
+        }
+        .sticky-note:focus {
+            border-color: #fbc02d;
+            background-color: #fff9c4; /* 點擊打字時背景會變深一點點 */
+        }
+        .save-status {
+            font-size: 0.8em;
+            color: #9e9e9e;
+            text-align: right;
+            margin-top: 8px;
+            min-height: 1.2em; 
+        }
     </style>
 </head>
 <body>
@@ -195,7 +242,45 @@
                 </div>
             </div>
         </div>
+
+        <div class="sticky-note-container">
+            <div class="sticky-note-header">📝 旅途隨記</div>
+            <textarea id="trip-note" class="sticky-note" placeholder=""></textarea>
+            <div class="save-status" id="save-status">準備就緒</div>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const noteArea = document.getElementById('trip-note');
+            const statusText = document.getElementById('save-status');
+
+            // 自動取得當前檔名 (例如 day4.html) 作為儲存的鑰匙
+            let pageName = window.location.pathname.split('/').pop();
+            if (!pageName) pageName = 'index.html'; 
+            const storageKey = 'kochi_trip_note_' + pageName;
+
+            // 1. 網頁載入時，把之前存的筆記拿出來放進去
+            const savedNote = localStorage.getItem(storageKey);
+            if (savedNote) {
+                noteArea.value = savedNote;
+            }
+
+            // 2. 監聽您打字的動作，停止打字 0.8 秒後自動儲存
+            let timeout = null;
+            noteArea.addEventListener('input', function() {
+                statusText.textContent = '儲存中...';
+                statusText.style.color = '#f57f17'; // 橘色提示
+
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    localStorage.setItem(storageKey, noteArea.value);
+                    statusText.textContent = '✅ 已自動儲存';
+                    statusText.style.color = '#4caf50'; // 綠色成功
+                }, 800); 
+            });
+        });
+    </script>
 
 </body>
 </html>
