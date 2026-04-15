@@ -153,18 +153,18 @@
       color: #ffffff; /* 懸停時圈圈內文字變白色 */
     }
 
-    /* 在大螢幕（電腦/平板）上恢復橫向路線圖 */
+/* 在大螢幕（電腦/平板）上恢復橫向路線圖 */
     @media (min-width: 601px) {
       .menu-container {
         flex-direction: row;
         justify-content: space-between;
-        max-width: 600px;
+        max-width: 950px; /* 👉 1. 這裡加寬！讓五天的文字有足夠空間伸展 */
         padding: 0;
       }
       
       /* 將直線轉成橫線 */
       .menu-container::before {
-        top: 25px; /* 讓線條對齊圈圈的中心 */
+        top: 25px;
         left: 10%;
         right: 10%;
         height: 6px;
@@ -176,6 +176,7 @@
         width: auto;
         margin-bottom: 0;
         flex: 1;
+        padding: 0 10px; /* 👉 2. 加上左右安全距離，避免不同天的文字連在一起 */
       }
       
       .menu-container a {
@@ -186,8 +187,9 @@
       .station-node {
         margin-right: 0;
         margin-bottom: 12px;
-        left: auto; /* 恢復位置 */
+        left: auto;
       }
+    }
     }
 
     /* --- 路線圖文字群組排版 --- */
@@ -345,7 +347,7 @@
       <a href="day1.html">
         <div class="station-node"></div>
         <div class="day-info">
-          <div class="day-main"><span class="day-icon">🐴</span><span>Day 1</span></div>
+          <div class="day-main"><span class="day-icon">🐴</span><span> Day 1</span></div>
           <div class="day-title">初見高知：賽馬與土佐風情</div>
         </div>
       </a>
@@ -354,7 +356,7 @@
       <a href="day2.html">
         <div class="station-node"></div>
         <div class="day-info">
-          <div class="day-main"><span class="day-icon">🍱</span><span>Day 2</span></div>
+          <div class="day-main"><span class="day-icon">🍱</span><span> Day 2</span></div>
           <div class="day-title">漫步日曜市與桂濱海風</div>
         </div>
       </a>
@@ -363,7 +365,7 @@
       <a href="day3.html">
         <div class="station-node"></div>
         <div class="day-info">
-          <div class="day-main"><span class="day-icon">💧</span><span>Day 3</span></div>
+          <div class="day-main"><span class="day-icon">💧</span><span> Day 3</span></div>
           <div class="day-title">仁淀藍尋蹤：中津溪谷與佐川町</div>
         </div>
       </a>
@@ -372,7 +374,7 @@
       <a href="day4.html">
         <div class="station-node"></div>
         <div class="day-info">
-          <div class="day-main"><span class="day-icon">🏯</span><span>Day 4</span></div>
+          <div class="day-main"><span class="day-icon">🏯</span><span> Day 4</span></div>
           <div class="day-title">歷史見證與質感生活</div>
         </div>
       </a>
@@ -381,7 +383,7 @@
       <a href="day5.html">
         <div class="station-node"></div>
         <div class="day-info">
-          <div class="day-main"><span class="day-icon">✈️</span><span>Day 5</span></div>
+          <div class="day-main"><span class="day-icon">✈️</span><span> Day 5</span></div>
           <div class="day-title">晨光咖啡與滿載而歸</div>
         </div>
       </a>
