@@ -69,110 +69,124 @@
       padding-bottom: 5px;
     }
 
-/* --- 路線圖風格導航選單 --- */
+/* --- 生動版手機路線圖風格導航選單 --- */
     .menu-container {
       position: relative;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column; /* 手機版預設垂直排列 */
+      align-items: flex-start;
       width: 100%;
-      max-width: 600px;
+      max-width: 400px; /* 手機上不用太寬 */
       margin: 40px auto 20px;
-      padding: 0;
+      padding: 0 20px; /* 留點邊距 */
       list-style: none;
+      box-sizing: border-box;
     }
 
-    /* 畫出貫穿的軌道路線 */
+    /* 畫出貫穿的粗垂直線 */
     .menu-container::before {
       content: '';
       position: absolute;
-      top: 15px; /* 讓線條對齊圈圈的中心 */
-      left: 10%;
-      right: 10%;
-      height: 4px;
+      top: 0;
+      bottom: 0;
+      left: calc(20px + 20px); /* 留給圈圈的空間 + 邊距的一半 */
+      width: 6px; /* 更粗的線，更有感 */
       background-color: var(--accent-cyan);
       z-index: 0;
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .menu-container li {
       position: relative;
       z-index: 1;
-      flex: 1;
+      width: 100%;
+      margin-bottom: 30px; /* 增加間距 */
     }
 
     .menu-container a {
       display: flex;
-      flex-direction: column;
+      flex-direction: row; /* 手機版圖文並排 */
       align-items: center;
       text-decoration: none;
       color: var(--text-navy);
       font-weight: bold;
-      font-size: 0.95em;
+      font-size: 1.1em; /* 字體放大點 */
       transition: transform 0.2s ease;
+      width: 100%;
     }
 
-    /* 站點圈圈（空心圓） */
+    /* 站點圈圈（大圈圈） */
     .station-node {
-      width: 24px;
-      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px; /* 更大的圈圈 */
+      height: 50px;
       background-color: #ffffff;
-      border: 4px solid var(--btn-blue);
+      border: 5px solid var(--btn-blue);
       border-radius: 50%;
-      margin-bottom: 12px;
+      margin-right: 20px; /* 留空間給線條 */
       box-sizing: border-box;
       transition: all 0.3s ease;
+      position: relative;
+      left: -5px; /* 調整圓圈位置以對齊線條 */
     }
 
     /* 滑鼠懸停時，站點亮起並浮動 */
     .menu-container a:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
     }
     
     .menu-container a:hover .station-node {
       background-color: var(--btn-blue);
-      box-shadow: 0 0 12px rgba(0, 91, 150, 0.6);
+      box-shadow: 0 0 15px rgba(0, 91, 150, 0.6);
+      border-color: #ffffff; /* 懸停時邊框變白色 */
     }
 
-    .day-icon {
-      font-size: 1.4em;
-      margin-bottom: 5px;
+    .station-node .day-icon {
+      font-size: 1.5em; /* 圈圈內圖示放大 */
+      color: var(--text-navy);
+      transition: color 0.3s ease;
+    }
+    
+    .menu-container a:hover .day-icon {
+      color: #ffffff; /* 懸停時圈圈內文字變白色 */
     }
 
-    /* 手機版：轉換成垂直路線圖 */
-    @media (max-width: 600px) {
+    /* 在大螢幕（電腦/平板）上恢復橫向路線圖 */
+    @media (min-width: 601px) {
       .menu-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 20%; /* 將路線圖往中間靠 */
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 600px;
+        padding: 0;
       }
       
-      /* 將橫線轉成直線 */
+      /* 將直線轉成橫線 */
       .menu-container::before {
-        top: 15px;
-        bottom: 30px;
-        left: calc(20% + 10px); /* 精準對齊垂直圈圈的中心 */
-        width: 4px;
-        height: auto;
+        top: 25px; /* 讓線條對齊圈圈的中心 */
+        left: 10%;
+        right: 10%;
+        height: 6px;
+        width: auto;
+        bottom: auto;
       }
       
       .menu-container li {
-        width: 100%;
-        margin-bottom: 25px;
+        width: auto;
+        margin-bottom: 0;
+        flex: 1;
       }
       
       .menu-container a {
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
       }
       
       .station-node {
-        margin-bottom: 0;
-        margin-right: 20px;
-      }
-      
-      .day-icon {
-        margin-bottom: 0;
-        margin-right: 10px;
+        margin-right: 0;
+        margin-bottom: 12px;
+        left: auto; /* 恢復位置 */
       }
     }
 
