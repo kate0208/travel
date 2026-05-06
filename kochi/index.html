@@ -71,7 +71,7 @@
 
     .boarding-pass {
       display: flex;
-      background: #E3F2FD; /* 淡淡的天藍色底 */
+      background: #E3F2FD; 
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 10px 20px rgba(0, 119, 182, 0.15);
@@ -80,16 +80,15 @@
       position: relative;
     }
 
-    /* 左側主聯 */
     .bp-main {
       flex: 1;
       display: flex;
       flex-direction: column;
-      border-right: 3px dashed #BBDCF1; /* 模擬撕線 */
+      border-right: 3px dashed #BBDCF1; 
     }
 
     .bp-header {
-      background: #1976D2; /* 航空藍 */
+      background: #1976D2; 
       color: white;
       padding: 10px 20px;
       display: flex;
@@ -105,9 +104,12 @@
       gap: 15px;
     }
 
-    /* 左側直條碼 */
+    /* 將條碼改為按鈕屬性 */
     .bp-barcode-left {
+      display: block;
       width: 25px;
+      cursor: pointer;
+      text-decoration: none;
       background: repeating-linear-gradient(
         to bottom,
         #2C3E50,
@@ -124,7 +126,9 @@
         transparent 15px
       );
       opacity: 0.8;
+      transition: opacity 0.2s;
     }
+    .bp-barcode-left:hover { opacity: 1; }
 
     .bp-content {
       flex: 1;
@@ -172,7 +176,6 @@
     .bp-detail-item label { display: block; font-size: 0.6em; color: #1976D2; font-weight: bold; margin-bottom: 2px; text-transform: uppercase; }
     .bp-detail-item .bp-val { font-size: 1em; font-weight: bold; color: #2C3E50; }
 
-    /* 右側票根 (Stub) */
     .bp-stub {
       width: 220px;
       display: flex;
@@ -208,8 +211,11 @@
     .bp-stub-box label { display: block; font-size: 0.55em; color: #1976D2; font-weight: bold; margin-bottom: 1px;}
     .bp-stub-box .bp-val { font-size: 0.9em; font-weight: bold; color: #2C3E50; }
 
-    /* 右下角小條碼 */
+    /* 小條碼也改為按鈕屬性 */
     .bp-barcode-bottom {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
       height: 25px;
       margin-top: auto;
       background: repeating-linear-gradient(
@@ -228,9 +234,10 @@
         transparent 13px
       );
       opacity: 0.8;
+      transition: opacity 0.2s;
     }
+    .bp-barcode-bottom:hover { opacity: 1; }
 
-    /* 手機版自適應：把票根折疊到下方 */
     @media (max-width: 650px) {
       .boarding-pass { flex-direction: column; }
       .bp-main { border-right: none; border-bottom: 3px dashed #BBDCF1; }
@@ -243,7 +250,7 @@
     }
 
     /* ========================================= */
-    /* --- 質感手帳風補充資訊 (活頁筆記本寬版) --- */
+    /* --- 質感手帳風補充資訊 --- */
     /* ========================================= */
     .info-container {
       width: 100%;
@@ -355,7 +362,6 @@
 
     .polaroid {
       background-color: #FFFFFF;
-      /* 拍立得經典比例：上、左、右窄邊，下方寬邊寫字 */
       padding: 12px 12px 25px 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
       text-decoration: none;
@@ -369,20 +375,17 @@
       position: relative;
     }
 
-    /* 隨機傾斜效果，營造照片散落在桌面的感覺 */
     .menu-grid li:nth-child(3n+1) .polaroid { transform: rotate(-2.5deg); }
     .menu-grid li:nth-child(3n+2) .polaroid { transform: rotate(1.5deg); }
     .menu-grid li:nth-child(3n) .polaroid { transform: rotate(-1deg); }
 
     .polaroid:hover {
-      /* 滑鼠移過去時放大、扶正，並加深陰影 */
       transform: translateY(-10px) rotate(0deg) scale(1.05) !important;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
       z-index: 10;
     }
 
     .polaroid-photo {
-      /* 照片感漸層背景，呼應仁淀藍主題 */
       background: linear-gradient(135deg, #E3F2FD 0%, #B3E5FC 100%);
       width: 100%;
       aspect-ratio: 1 / 1; 
@@ -421,7 +424,7 @@
 
   <div class="header-section">
     <h1>KOCHI</h1>
-    <p class="subtitle">2026-05-16 ~ 05-20 <br> 尋找仁淀藍之旅</p>
+    <p class="subtitle">2026-05-16 ~ 05-20 · 尋找仁淀藍之旅</p>
   </div>
 
   <!-- 擬真機票區塊 -->
@@ -434,7 +437,8 @@
           <span class="bp-subtitle">BOARDING PASS</span>
         </div>
         <div class="bp-body">
-          <div class="bp-barcode-left"></div>
+          <!-- 條碼改為超連結 -->
+          <a href="https://www.tigerairtw.com/zh-tw/" target="_blank" title="開啟虎航 App" class="bp-barcode-left"></a>
           <div class="bp-content">
             <div class="bp-route">
               <div class="bp-box"><label>FROM</label><div class="bp-val">TPE</div></div>
@@ -459,7 +463,8 @@
             <div class="bp-stub-box" style="flex:1"><label>FLIGHT</label><div class="bp-val">IT 250</div></div>
             <div class="bp-stub-box" style="flex:1"><label>SEAT</label><div class="bp-val">5D、5E</div></div>
           </div>
-          <div class="bp-barcode-bottom"></div>
+          <!-- 條碼改為超連結 -->
+          <a href="https://www.tigerairtw.com/zh-tw/" target="_blank" title="開啟虎航 App" class="bp-barcode-bottom"></a>
         </div>
       </div>
     </div>
@@ -472,7 +477,7 @@
           <span class="bp-subtitle">BOARDING PASS</span>
         </div>
         <div class="bp-body">
-          <div class="bp-barcode-left"></div>
+          <a href="https://www.tigerairtw.com/zh-tw/" target="_blank" title="開啟虎航 App" class="bp-barcode-left"></a>
           <div class="bp-content">
             <div class="bp-route">
               <div class="bp-box"><label>FROM</label><div class="bp-val">KCZ</div></div>
@@ -497,7 +502,7 @@
             <div class="bp-stub-box" style="flex:1"><label>FLIGHT</label><div class="bp-val">IT 251</div></div>
             <div class="bp-stub-box" style="flex:1"><label>SEAT</label><div class="bp-val">6B、6C</div></div>
           </div>
-          <div class="bp-barcode-bottom"></div>
+          <a href="https://www.tigerairtw.com/zh-tw/" target="_blank" title="開啟虎航 App" class="bp-barcode-bottom"></a>
         </div>
       </div>
     </div>
