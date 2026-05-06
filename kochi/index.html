@@ -6,384 +6,586 @@
   <title>Japan-Kochi</title>
   <style>
     :root {
-      /* 仁淀藍 (Niyodo Blue) 靈感的藍色系 */
-      --bg-blue: #F0F8FF;      /* 愛麗絲藍，乾淨的底色 */
-      --text-navy: #011F4B;    /* 深海軍藍，用於標題和文字 */
-      --btn-blue: #005B96;     /* 飽和的仁淀川藍 */
-      --btn-hover: #03396C;    /* 滑鼠懸停的深藍色 */
-      --accent-cyan: #6497B1;  /* 點綴用的淺藍 */
+      --bg-color: #F7F9FB;       
+      --text-main: #2C3E50;      
+      --niyodo-blue: #0077B6;    
+      --niyodo-light: #90E0EF;   
+      --yuzu-yellow: #FFB703;    
+      --card-bg: #FFFFFF;
     }
 
     body {
-      font-family: "PingFang TC", "Heiti TC", "Noto Sans TC", sans-serif;
-      background-color: var(--bg-blue);
-      color: var(--text-navy);
-      text-align: center;
+      font-family: 'Nunito', "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
       margin: 0;
-      padding: 20px;
+      padding: 20px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      background-image: radial-gradient(#90E0EF 1px, transparent 1px);
+      background-size: 30px 30px; 
+    }
+
+    /* --- 頁首標題區 --- */
+    .header-section {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 30px;
     }
 
     h1 {
-      font-size: 2em;
-      margin-top: 50px;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-      border-bottom: 3px solid var(--accent-cyan);
-      display: inline-block;
-      padding-bottom: 5px;
+      font-size: 2.5em;
+      margin: 0;
+      font-weight: 900;
+      color: var(--niyodo-blue);
+      letter-spacing: 4px;
+      text-shadow: 2px 2px 0px rgba(144, 224, 239, 0.5);
     }
 
     p.subtitle {
-      color: var(--accent-cyan);
-      margin-bottom: 25px;
+      color: #557A95;
+      margin-top: 8px;
       font-size: 1.1em;
       font-weight: bold;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 5px 15px;
+      border-radius: 20px;
+      display: inline-block;
     }
 
-    /* 航班資訊區塊的整體樣式 */
-    .flight-info {
-      background-color: #ffffff;
-      color: var(--text-navy);
-      padding: 15px 25px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 6px rgba(0, 91, 150, 0.1);
-      font-weight: bold;
-      line-height: 1.8;
-      border-left: 5px solid var(--accent-cyan);
-      text-align: left;
-      width: 100%;
-      max-width: 310px;
-    }
-
-    /* 航班資訊小標題的專屬樣式 */
-    .flight-title {
-      color: var(--btn-blue);
-      font-size: 1.1em;
-      margin-bottom: 5px;
-      border-bottom: 1px dashed #ccc; 
-      padding-bottom: 5px;
-    }
-
-/* --- 生動版手機路線圖風格導航選單 --- */
-    .menu-container {
-      position: relative;
+    /* ========================================= */
+    /* --- 擬真機票風格 Boarding Pass --- */
+    /* ========================================= */
+    .tickets-wrapper {
       display: flex;
-      flex-direction: column; /* 手機版預設垂直排列 */
-      align-items: flex-start;
+      flex-direction: column;
+      gap: 20px;
       width: 100%;
-      max-width: 400px; /* 手機上不用太寬 */
-      margin: 40px auto 20px;
-      padding: 0 20px; /* 留點邊距 */
-      list-style: none;
-      box-sizing: border-box;
+      max-width: 850px;
+      margin-bottom: 40px;
+      align-items: center;
     }
 
-    /* 畫出貫穿的粗垂直線 */
-    .menu-container::before {
+    .boarding-pass {
+      display: flex;
+      background: #E3F2FD; /* 淡淡的天藍色底 */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 119, 182, 0.15);
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+    }
+
+    /* 左側主聯 */
+    .bp-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-right: 3px dashed #BBDCF1; /* 模擬撕線 */
+    }
+
+    .bp-header {
+      background: #1976D2; /* 航空藍 */
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bp-header .bp-title { font-size: 1.2em; font-weight: 900; }
+    .bp-header .bp-subtitle { font-size: 0.85em; letter-spacing: 2px; opacity: 0.9; }
+
+    .bp-body {
+      display: flex;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    /* 左側直條碼 */
+    .bp-barcode-left {
+      width: 25px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #2C3E50,
+        #2C3E50 2px,
+        transparent 2px,
+        transparent 4px,
+        #2C3E50 4px,
+        #2C3E50 8px,
+        transparent 8px,
+        transparent 10px,
+        #2C3E50 10px,
+        #2C3E50 12px,
+        transparent 12px,
+        transparent 15px
+      );
+      opacity: 0.8;
+    }
+
+    .bp-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .bp-route {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .bp-box {
+      background: white;
+      padding: 8px 15px;
+      border-radius: 6px;
+      flex: 1;
+      text-align: center;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+    }
+    .bp-box label { display: block; font-size: 0.65em; color: #1976D2; font-weight: bold; margin-bottom: 2px; }
+    .bp-box .bp-val { font-size: 1.6em; font-weight: 900; color: #2C3E50; letter-spacing: 1px; }
+
+    .bp-plane {
+      font-size: 2em;
+      color: #1976D2;
+      text-shadow: 2px 2px 0px rgba(25, 118, 210, 0.2);
+    }
+
+    .bp-details {
+      display: flex;
+      gap: 10px;
+    }
+    .bp-detail-item {
+      background: white;
+      padding: 8px 10px;
+      border-radius: 6px;
+      flex: 1;
+      text-align: center;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+    }
+    .bp-detail-item label { display: block; font-size: 0.6em; color: #1976D2; font-weight: bold; margin-bottom: 2px; text-transform: uppercase; }
+    .bp-detail-item .bp-val { font-size: 1em; font-weight: bold; color: #2C3E50; }
+
+    /* 右側票根 (Stub) */
+    .bp-stub {
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      background: #E3F2FD;
+    }
+
+    .bp-stub-header {
+      background: #1976D2;
+      color: white;
+      padding: 10px 15px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bp-stub-header span { font-size: 1.08em; }
+
+    .bp-stub-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+    }
+
+    .bp-stub-box {
+      background: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+    }
+    .bp-stub-box label { display: block; font-size: 0.55em; color: #1976D2; font-weight: bold; margin-bottom: 1px;}
+    .bp-stub-box .bp-val { font-size: 0.9em; font-weight: bold; color: #2C3E50; }
+
+    /* 右下角小條碼 */
+    .bp-barcode-bottom {
+      height: 25px;
+      margin-top: auto;
+      background: repeating-linear-gradient(
+        to right,
+        #2C3E50,
+        #2C3E50 2px,
+        transparent 2px,
+        transparent 4px,
+        #2C3E50 4px,
+        #2C3E50 7px,
+        transparent 7px,
+        transparent 10px,
+        #2C3E50 10px,
+        #2C3E50 11px,
+        transparent 11px,
+        transparent 13px
+      );
+      opacity: 0.8;
+    }
+
+    /* 手機版自適應：把票根折疊到下方 */
+    @media (max-width: 650px) {
+      .boarding-pass { flex-direction: column; }
+      .bp-main { border-right: none; border-bottom: 3px dashed #BBDCF1; }
+      .bp-stub { width: 100%; }
+      .bp-barcode-left { display: none; }
+      .bp-barcode-bottom { height: 40px; margin-top: 15px; }
+      .bp-plane { transform: rotate(90deg); margin: 10px 0; }
+      .bp-route { flex-direction: column; }
+      .bp-box { width: 100%; box-sizing: border-box; }
+    }
+
+    /* ========================================= */
+    /* --- 質感手帳風補充資訊 (活頁筆記本寬版) --- */
+    /* ========================================= */
+    .info-container {
+      width: 100%;
+      max-width: 850px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    details.info-box {
+      background-color: #FDFCF8; 
+      border-radius: 4px 12px 12px 4px; 
+      box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.06), -1px 0 0 rgba(0,0,0,0.03);
+      padding: 20px 30px 20px 65px; 
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      border: 1px solid #EAE6D9;
+      background-image: repeating-linear-gradient(
+        transparent,
+        transparent 32px,
+        rgba(0, 119, 182, 0.08) 32px,
+        rgba(0, 119, 182, 0.08) 33px
+      );
+    }
+
+    details.info-box::before {
       content: '';
       position: absolute;
       top: 0;
       bottom: 0;
-      left: calc(20px + 20px); /* 留給圈圈的空間 + 邊距的一半 */
-      width: 6px; /* 更粗的線，更有感 */
-      background-color: var(--accent-cyan);
-      z-index: 0;
-      border-radius: 3px;
+      left: 45px;
+      width: 1px;
+      background-color: rgba(220, 53, 69, 0.35);
     }
 
-    .menu-container li {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      margin-bottom: 30px; /* 增加間距 */
-    }
-
-    .menu-container a {
-      display: flex;
-      flex-direction: row; /* 手機版圖文並排 */
-      align-items: center;
-      text-decoration: none;
-      color: var(--text-navy);
-      font-weight: bold;
-      font-size: 1.1em; /* 字體放大點 */
-      transition: transform 0.2s ease;
-      width: 100%;
-    }
-
-    /* 站點圈圈（大圈圈） */
-    .station-node {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px; /* 更大的圈圈 */
-      height: 40px;
-      background-color: #ffffff;
-      border: 5px solid var(--btn-blue);
-      border-radius: 50%;
-      margin-right: 20px; /* 留空間給線條 */
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-      position: relative;
-      left: -5px; /* 調整圓圈位置以對齊線條 */
-    }
-
-    /* 滑鼠懸停時，站點亮起並浮動 */
-    .menu-container a:hover {
-      transform: translateY(-3px);
-    }
-    
-    .menu-container a:hover .station-node {
-      background-color: var(--btn-blue);
-      box-shadow: 0 0 15px rgba(0, 91, 150, 0.6);
-      border-color: #ffffff; /* 懸停時邊框變白色 */
-    }
-
-    .station-node .day-icon {
-      font-size: 1.5em; /* 圈圈內圖示放大 */
-      color: var(--text-navy);
-      transition: color 0.3s ease;
-    }
-    
-    .menu-container a:hover .day-icon {
-      color: #ffffff; /* 懸停時圈圈內文字變白色 */
-    }
-
-/* 在大螢幕（電腦/平板）上恢復橫向路線圖 */
-    @media (min-width: 601px) {
-      .menu-container {
-        flex-direction: row;
-        justify-content: space-between;
-        max-width: 950px; /* 👉 1. 這裡加寬！讓五天的文字有足夠空間伸展 */
-        padding: 0;
-      }
-      
-      /* 將直線轉成橫線 */
-      .menu-container::before {
-        top: 25px;
-        left: 10%;
-        right: 10%;
-        height: 6px;
-        width: auto;
-        bottom: auto;
-      }
-      
-      .menu-container li {
-        width: auto;
-        margin-bottom: 0;
-        flex: 1;
-        padding: 0 10px; /* 👉 2. 加上左右安全距離，避免不同天的文字連在一起 */
-      }
-      
-      .menu-container a {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .station-node {
-        margin-right: 0;
-        margin-bottom: 12px;
-        left: auto;
-      }
-    }
-    }
-
-    /* --- 路線圖文字群組排版 --- */
-    .day-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* 電腦版標題置中 */
-      text-align: center;
-    }
-
-    .day-main {
-      display: flex;
-      align-items: center;
-    }
-
-    /* 每天的副標題樣式 */
-    .day-title {
-      font-size: 0.75em;
-      color: #6497B1; /* 呼應主題的淺藍色 */
-      margin-top: 6px;
-      font-weight: normal;
-      line-height: 1.3;
-    }
-
-    /* 針對手機版的文字對齊微調 */
-    @media (max-width: 600px) {
-      .day-info {
-        align-items: flex-start; /* 手機版文字靠左對齊，配合直線軌道 */
-        text-align: left;
-      }
-    }
-
-    /* 補充資訊區塊：輕量化設計 */
-    details.info-box {
-      background-color: rgba(242, 169, 0, 0.08); 
-      border: 1px dashed rgba(242, 169, 0, 0.6); 
-      border-radius: 8px;
-      margin-bottom: 15px; 
-      text-align: left;
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 400px; 
-      padding: 12px 20px;
-      color: var(--text-navy);
-      font-size: 0.85em; 
-      transition: all 0.3s ease;
+    details.info-box::after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      bottom: 16px;
+      left: 14px;
+      width: 12px;
+      background-image: radial-gradient(circle, #E1DDD1 5px, transparent 6px);
+      background-size: 100% 33px; 
+      background-repeat: repeat-y;
     }
 
     details.info-box:hover {
-      border-color: rgba(242, 169, 0, 1);
+      box-shadow: 6px 8px 20px rgba(0, 0, 0, 0.09);
+      transform: translateY(-2px);
     }
 
     details.info-box summary {
       font-weight: bold;
-      color: var(--text-navy);
+      color: var(--text-main);
       cursor: pointer;
       list-style: none;
       outline: none;
-      font-size: 1.05em; /* 稍微放大標題 */
+      font-size: 1.15em;
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
     }
 
-    details.info-box summary::-webkit-details-marker {
-      display: none; 
-    }
-
+    details.info-box summary::-webkit-details-marker { display: none; }
     details.info-box summary::before {
-      content: '💡 ';
+      content: '📝'; 
+      margin-right: 12px;
+      font-size: 1.2em;
     }
 
-    /* 展開後的內部文字排版 */
     .info-content {
-      margin-top: 12px;
-      line-height: 1.6;
-      border-top: 1px dashed rgba(242, 169, 0, 0.3); 
-      padding-top: 10px;
+      margin-top: 15px;
+      line-height: 1.8;
+      color: #4A5568;
+      font-size: 0.98em;
+      padding-top: 5px;
     }
 
-    /* 新增：為介紹內容的小標題設定樣式 */
     .info-content h3 {
-      color: var(--btn-blue);
+      color: var(--text-main);
       font-size: 1.1em;
-      margin-top: 18px;
-      margin-bottom: 6px;
-      border-bottom: 1px solid rgba(100, 151, 177, 0.2);
-      padding-bottom: 4px;
+      margin: 20px 0 10px 0;
+      display: inline-block;
+      background: rgba(144, 224, 239, 0.4); 
+      padding: 2px 8px;
+      border-radius: 4px;
+      transform: skewX(-5deg); 
     }
 
-    .info-content p {
-      margin-top: 0;
-      margin-bottom: 8px;
+    .info-content ul, .info-content ol { padding-left: 20px; }
+    .info-content li { margin-bottom: 8px; }
+
+    /* ========================================= */
+    /* --- 拍立得照片風格行程網格 (Polaroid) --- */
+    /* ========================================= */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 850px;
+      padding: 0;
+      list-style: none;
+      margin-bottom: 60px;
+      justify-items: center;
     }
 
-    .info-content ul, .info-content ol {
-      padding-left: 20px;
-      margin-top: 8px;
-      margin-bottom: 0;
+    .polaroid {
+      background-color: #FFFFFF;
+      /* 拍立得經典比例：上、左、右窄邊，下方寬邊寫字 */
+      padding: 12px 12px 25px 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 3px; 
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s;
+      position: relative;
     }
 
-    .info-content li {
-      margin-bottom: 8px;
+    /* 隨機傾斜效果，營造照片散落在桌面的感覺 */
+    .menu-grid li:nth-child(3n+1) .polaroid { transform: rotate(-2.5deg); }
+    .menu-grid li:nth-child(3n+2) .polaroid { transform: rotate(1.5deg); }
+    .menu-grid li:nth-child(3n) .polaroid { transform: rotate(-1deg); }
+
+    .polaroid:hover {
+      /* 滑鼠移過去時放大、扶正，並加深陰影 */
+      transform: translateY(-10px) rotate(0deg) scale(1.05) !important;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .polaroid-photo {
+      /* 照片感漸層背景，呼應仁淀藍主題 */
+      background: linear-gradient(135deg, #E3F2FD 0%, #B3E5FC 100%);
+      width: 100%;
+      aspect-ratio: 1 / 1; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5em; 
+      margin-bottom: 15px;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.06); 
+      overflow: hidden;
+    }
+
+    .polaroid-caption {
+      text-align: center;
+      width: 100%;
+    }
+
+    .polaroid .day-number {
+      font-size: 1.25em;
+      font-weight: 900;
+      color: #2C3E50;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+      font-family: 'Marker Felt', 'Comic Sans MS', "PingFang TC", sans-serif; 
+    }
+
+    .polaroid .day-title {
+      font-size: 0.95em;
+      color: #557A95;
+      font-weight: bold;
+      line-height: 1.4;
     }
   </style>
 </head>
 <body>
 
-  <h1>KOCHI 高知</h1>
-  <p class="subtitle">2026/05/16-05/20<br>四國高知 · 尋找仁淀藍之旅</p>
-
-  <div class="flight-info">
-    <div class="flight-title">✈️ 航班資訊</div>
-    去程 5/16 TPE-KCZ 08:20 - 12:00<br>
-    回程 5/20 KCZ-TPE 14:00 - 15:20
+  <div class="header-section">
+    <h1>KOCHI</h1>
+    <p class="subtitle">2026-05-16 ~ 05-20 · 尋找仁淀藍之旅</p>
   </div>
 
-  <details class="info-box">
-    <summary>關於高知：四國的秘境與熱情之國</summary>
-    <div class="info-content">
-      <p>高知縣（古稱土佐）背倚四國山脈，面朝廣闊的太平洋。這裡不僅有絕美的自然景觀，更孕育出豪邁、熱情且充滿生命力的在地文化。</p>
-
-      <h3>📜 歷史故事：英雄與賢內助的舞台</h3>
-      <ul>
-        <li><strong>坂本龍馬與海洋的野心：</strong> 作為日本幕末最重要的維新志士，龍馬的故鄉就在高知。他在桂濱望向太平洋的銅像，象徵著帶領日本走向現代化與世界接軌的宏大視野。</li>
-        <li><strong>功名十字路：</strong> 高知城由初代藩主山內一豊建造。傳說他的妻子千代曾用私房錢為他買下一匹名馬，助他在織田信長面前立下戰功，是日本歷史上著名的「賢內助」佳話。</li>
-      </ul>
-
-      <h3>🎉 文化背景：熱血與分享的靈魂</h3>
-      <ul>
-        <li><strong>「客（おきゃく）」宴客文化：</strong> 高知人極度熱愛聚會與分享。就像平時在家下廚烤點心、準備一桌好菜招待三五好友那樣，高知人把這種好客精神發揮到了極致。在弘人市場等地，不分男女老少、認識與否，大家都能同桌舉杯，氣氛無比歡樂。</li>
-        <li><strong>夜來祭（よさこい）：</strong> 誕生於戰後復甦期的高知夏日祭典。舞者們雙手拿著「鳴子（木製響板）」在街頭熱舞，展現出土佐人不畏艱難、熱情奔放的強韌性格。</li>
-      </ul>
-
-      <h3>🍱 美食推薦：大自然的豐盛恩賜</h3>
-      <ul>
-        <li><strong>稻草炙燒鰹魚（鰹のたたき）：</strong> 高知最著名的靈魂美食。以熊熊的稻草大火瞬間高溫炙烤鰹魚表面，鎖住魚肉鮮甜並帶有獨特燻香，搭配大量蔥花、蒜片與天日鹽，口感極佳。</li>
-        <li><strong>日本第一的柚子（Yuzu）：</strong> 高知是全日本柚子產量最高的地方。清香的柚子汁不僅用於提味，若帶些在地的柚子果醬或特製醬汁回去，非常適合未來在自家廚房裡，為男友或朋友們重現專屬的高知風味。</li>
-        <li><strong>日曜市與田舍壽司：</strong> 擁有 300 年歷史的週日市集，充滿濃濃的庶民生活感。這裡特有的「田舍壽司」不使用海鮮，而是以山菜、蒟蒻搭配柚子醋飯製作，清爽又特別。</li>
-      </ul>
+  <!-- 擬真機票區塊 -->
+  <div class="tickets-wrapper">
+    <!-- 去程機票 -->
+    <div class="boarding-pass">
+      <div class="bp-main">
+        <div class="bp-header">
+          <span class="bp-title">TigerAir Ticket</span>
+          <span class="bp-subtitle">BOARDING PASS</span>
+        </div>
+        <div class="bp-body">
+          <div class="bp-barcode-left"></div>
+          <div class="bp-content">
+            <div class="bp-route">
+              <div class="bp-box"><label>FROM</label><div class="bp-val">TPE</div></div>
+              <div class="bp-plane">✈️</div>
+              <div class="bp-box"><label>TO</label><div class="bp-val">KCZ</div></div>
+            </div>
+            <div class="bp-details">
+              <div class="bp-detail-item"><label>DATE</label><div class="bp-val">May 16</div></div>
+              <div class="bp-detail-item"><label>DEPART</label><div class="bp-val">08:20</div></div>
+              <div class="bp-detail-item"><label>ARRIVE</label><div class="bp-val">12:00</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bp-stub">
+        <div class="bp-stub-header">
+          <span>TigerAir Ticket</span><span>✈️</span>
+        </div>
+        <div class="bp-stub-body">
+          <div class="bp-stub-box"><label>PASSENGER</label><div class="bp-val">Rex、Kate</div></div>
+          <div style="display:flex; gap:8px;">
+            <div class="bp-stub-box" style="flex:1"><label>FLIGHT</label><div class="bp-val">IT 250</div></div>
+            <div class="bp-stub-box" style="flex:1"><label>SEAT</label><div class="bp-val">5D、5E</div></div>
+          </div>
+          <div class="bp-barcode-bottom"></div>
+        </div>
+      </div>
     </div>
-  </details>
 
-  <details class="info-box">
-    <summary>小知識：為什麼叫龍馬機場？</summary>
-    <div class="info-content">
-      <p>高知龍馬機場之所以命名為「龍馬」，是為了紀念日本幕末時期的維新志士——<strong>坂本龍馬</strong>。這座機場在 2003 年正式更名，是日本歷史上<strong>第一個以人物命名的機場</strong>。以下是其命名由來：</p>
-      <ol>
-        <li><strong>坂本龍馬的故鄉：</strong><br>他於 1835 年出生在土佐藩（現在的高知縣），是促成「大政奉還」的重要推手，象徵著開拓精神。</li>
-        <li><strong>提升觀光魅力：</strong><br>2003 年是龍馬誕生 168 週年，當地民間經濟團體發起改名，希望藉由他的高知名度吸引旅客。這也首創了日本機場以人物命名的先例（如後來的鳥取沙丘柯南機場）。</li>
-        <li><strong>機場內的「龍馬」元素：</strong><br>航廈內設有坂本龍馬的巨大銅像、二樓有生平展示走廊，連當地的觀光吉祥物也經常結合龍馬的和服與靴子扮相。</li>
-      </ol>
+    <!-- 回程機票 -->
+    <div class="boarding-pass">
+      <div class="bp-main">
+        <div class="bp-header">
+          <span class="bp-title">TigerAir Ticket</span>
+          <span class="bp-subtitle">BOARDING PASS</span>
+        </div>
+        <div class="bp-body">
+          <div class="bp-barcode-left"></div>
+          <div class="bp-content">
+            <div class="bp-route">
+              <div class="bp-box"><label>FROM</label><div class="bp-val">KCZ</div></div>
+              <div class="bp-plane">✈️</div>
+              <div class="bp-box"><label>TO</label><div class="bp-val">TPE</div></div>
+            </div>
+            <div class="bp-details">
+              <div class="bp-detail-item"><label>DATE</label><div class="bp-val">May 20</div></div>
+              <div class="bp-detail-item"><label>DEPART</label><div class="bp-val">14:00</div></div>
+              <div class="bp-detail-item"><label>ARRIVE</label><div class="bp-val">15:20</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bp-stub">
+        <div class="bp-stub-header">
+          <span>TigerAir Ticket</span><span>✈️</span>
+        </div>
+        <div class="bp-stub-body">
+          <div class="bp-stub-box"><label>PASSENGER</label><div class="bp-val">Rex、Kate</div></div>
+          <div style="display:flex; gap:8px;">
+            <div class="bp-stub-box" style="flex:1"><label>FLIGHT</label><div class="bp-val">IT 251</div></div>
+            <div class="bp-stub-box" style="flex:1"><label>SEAT</label><div class="bp-val">6B、6C</div></div>
+          </div>
+          <div class="bp-barcode-bottom"></div>
+        </div>
+      </div>
     </div>
-  </details>
+  </div>
 
-<ul class="menu-container">
+  <div class="info-container">
+    <details class="info-box">
+      <summary>關於高知：四國的秘境與熱情之國</summary>
+      <div class="info-content">
+        <p>高知縣（古稱土佐）背倚四國山脈，面朝廣闊的太平洋。這裡不僅有絕美的自然景觀，更孕育出豪邁、熱情且充滿生命力的在地文化。</p>
+
+        <h3>📜 歷史故事：英雄與賢內助的舞台</h3>
+        <ul>
+          <li><strong>坂本龍馬與海洋的野心：</strong> 作為日本幕末最重要的維新志士，龍馬的故鄉就在高知。他在桂濱望向太平洋的銅像，象徵著帶領日本走向現代化與世界接軌的宏大視野。</li>
+          <li><strong>功名十字路：</strong> 高知城由初代藩主山內一豊建造。傳說他的妻子千代曾用私房錢為他買下一匹名馬，助他在織田信長面前立下戰功，是日本歷史上著名的「賢內助」佳話。</li>
+        </ul>
+
+        <h3>🎉 文化背景：熱血與分享的靈魂</h3>
+        <ul>
+          <li><strong>「客（おきゃく）」宴客文化：</strong> 高知人極度熱愛聚會與分享。就像平時在家下廚烤點心、準備一桌好菜招待三五好友那樣，高知人把這種好客精神發揮到了極致。在弘人市場等地，不分男女老少、認識與否，大家都能同桌舉杯，氣氛無比歡樂。</li>
+          <li><strong>夜來祭（よさこい）：</strong> 誕生於戰後復甦期的高知夏日祭典。舞者們雙手拿著「鳴子（木製響板）」在街頭熱舞，展現出土佐人不畏艱難、熱情奔放的強韌性格。</li>
+        </ul>
+
+        <h3>🍱 美食推薦：大自然的豐盛恩賜</h3>
+        <ul>
+          <li><strong>稻草炙燒鰹魚（鰹のたたき）：</strong> 高知最著名的靈魂美食。以熊熊的稻草大火瞬間高溫炙烤鰹魚表面，鎖住魚肉鮮甜並帶有獨特燻香，搭配大量蔥花、蒜片與天日鹽，口感極佳。</li>
+          <li><strong>日本第一的柚子（Yuzu）：</strong> 高知是全日本柚子產量最高的地方。清香的柚子汁不僅用於提味，若帶些在地的柚子果醬或特製醬汁回去，非常適合未來在自家廚房裡，為男友或朋友們重現專屬的高知風味。</li>
+          <li><strong>日曜市與田舍壽司：</strong> 擁有 300 年歷史的週日市集，充滿濃濃的庶民生活感。這裡特有的「田舍壽司」不使用海鮮，而是以山菜、蒟蒻搭配柚子醋飯製作，清爽又特別。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="info-box">
+      <summary>小知識：為什麼叫龍馬機場？</summary>
+      <div class="info-content">
+        <p>高知龍馬機場之所以命名為「龍馬」，是為了紀念日本幕末時期的維新志士——<strong>坂本龍馬</strong>。這座機場在 2003 年正式更名，是日本歷史上<strong>第一個以人物命名的機場</strong>。以下是其命名由來：</p>
+        <ol>
+          <li><strong>坂本龍馬的故鄉：</strong><br>他於 1835 年出生在土佐藩（現在的高知縣），是促成「大政奉還」的重要推手，象徵著開拓精神。</li>
+          <li><strong>提升觀光魅力：</strong><br>2003 年是龍馬誕生 168 週年，當地民間經濟團體發起改名，希望藉由他的高知名度吸引旅客。這也首創了日本機場以人物命名的先例（如後來的鳥取沙丘柯南機場）。</li>
+          <li><strong>機場內的「龍馬」元素：</strong><br>航廈內設有坂本龍馬的巨大銅像、二樓有生平展示走廊，連當地的觀光吉祥物也經常結合龍馬的和服與靴子扮相。</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <!-- 拍立得照片風格行程網格 -->
+  <ul class="menu-grid">
     <li>
-      <a href="day1.html">
-        <div class="station-node"></div>
-        <div class="day-info">
-          <div class="day-main"><span class="day-icon">🐴</span><span> Day 1</span></div>
+      <a href="day1.html" class="polaroid">
+        <div class="polaroid-photo">🐴</div>
+        <div class="polaroid-caption">
+          <div class="day-number">Day 1</div>
           <div class="day-title">初見高知：賽馬與土佐風情</div>
         </div>
       </a>
     </li>
     <li>
-      <a href="day2.html">
-        <div class="station-node"></div>
-        <div class="day-info">
-          <div class="day-main"><span class="day-icon">🍱</span><span> Day 2</span></div>
+      <a href="day2.html" class="polaroid">
+        <div class="polaroid-photo">🍱</div>
+        <div class="polaroid-caption">
+          <div class="day-number">Day 2</div>
           <div class="day-title">漫步日曜市與桂濱海風</div>
         </div>
       </a>
     </li>
     <li>
-      <a href="day3.html">
-        <div class="station-node"></div>
-        <div class="day-info">
-          <div class="day-main"><span class="day-icon">💧</span><span> Day 3</span></div>
+      <a href="day3.html" class="polaroid">
+        <div class="polaroid-photo">💧</div>
+        <div class="polaroid-caption">
+          <div class="day-number">Day 3</div>
           <div class="day-title">仁淀藍尋蹤：中津溪谷與佐川町</div>
         </div>
       </a>
     </li>
     <li>
-      <a href="day4.html">
-        <div class="station-node"></div>
-        <div class="day-info">
-          <div class="day-main"><span class="day-icon">🏯</span><span> Day 4</span></div>
+      <a href="day4.html" class="polaroid">
+        <div class="polaroid-photo">🏯</div>
+        <div class="polaroid-caption">
+          <div class="day-number">Day 4</div>
           <div class="day-title">歷史見證與質感生活</div>
         </div>
       </a>
     </li>
     <li>
-      <a href="day5.html">
-        <div class="station-node"></div>
-        <div class="day-info">
-          <div class="day-main"><span class="day-icon">✈️</span><span> Day 5</span></div>
+      <a href="day5.html" class="polaroid">
+        <div class="polaroid-photo">✈️</div>
+        <div class="polaroid-caption">
+          <div class="day-number">Day 5</div>
           <div class="day-title">晨光咖啡與滿載而歸</div>
         </div>
       </a>
