@@ -5,162 +5,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>高知自由行 Day 4</title>
     <style>
+        :root {
+            --bg-color: #F7F9FB;       
+            --text-main: #2C3E50;      
+            --niyodo-blue: #0077B6;    
+            --niyodo-light: #90E0EF;   
+            --yuzu-yellow: #FFB703;    
+            --card-bg: #FFFFFF;
+        }
+
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
-            padding: 10px;
+            font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 20px 15px;
+            margin: 0;
+            background-image: radial-gradient(var(--niyodo-light) 1px, transparent 1px);
+            background-size: 30px 30px; 
         }
+
         .itinerary-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            padding: 10px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.08);
+            padding: 40px 30px;
+            box-sizing: border-box;
         }
+
         .header-container {
             position: relative;
             text-align: center;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
+            border-bottom: 2px dashed #BBDCF1;
+            padding-bottom: 25px;
+            margin-bottom: 40px;
         }
+        
         h1 {
-            color: #2c3e50;
+            color: var(--niyodo-blue);
             margin: 0;
-            padding: 0 140px; 
+            padding: 0 110px; 
             line-height: 1.4;
-            font-size: 1.4em;
+            font-size: 1.6em;
+            font-weight: 900;
+            letter-spacing: 1px;
         }
+        
         .nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: #3498db;
+            background-color: var(--niyodo-blue);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 8px 20px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.85em;
-            transition: background-color 0.2s;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
             white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2);
         }
-        .prev-day-btn { left: 0; background-color: #95a5a6; }
-        .next-day-btn { right: 0; }
+        .prev-day-btn { left: 0; background-color: #95a5a6; box-shadow: 0 4px 10px rgba(149, 165, 166, 0.2); }
+        .next-day-btn { right: 0; background-color: var(--yuzu-yellow); color: var(--text-main); box-shadow: 0 4px 10px rgba(255, 183, 3, 0.2); }
+        .nav-btn:hover { transform: translateY(-50%) scale(1.05); }
         
         @media (max-width: 768px) {
-            h1 { padding: 0; font-size: 1.4em; }
-            .nav-btn { position: static; transform: none; display: inline-block; margin: 10px 5px; }
+            h1 { padding: 0; font-size: 1.4em; margin-bottom: 20px; }
+            .nav-btn { position: static; transform: none; display: inline-block; margin: 0 10px; }
+            .nav-btn:hover { transform: scale(1.05); }
         }
 
         .event-block {
-            margin-bottom: 40px;
-            padding-bottom: 25px;
-            border-bottom: 1px dashed #ecf0f1;
+            margin-bottom: 45px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #E3F2FD;
+            position: relative;
         }
-        .event-block:last-child { border-bottom: none; }
+        .event-block:last-child { border-bottom: none; margin-bottom: 0; }
+        
         .time-location {
-            font-size: 1.3em;
-            color: #e74c3c;
-            font-weight: bold;
+            font-size: 1.4em;
+            color: var(--niyodo-blue);
+            font-weight: 900;
             display: flex;
             align-items: center;
             flex-wrap: wrap; 
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-        .time-location::before { content: '📍'; margin-right: 8px; }
+        .time-location::before { content: '📍'; margin-right: 10px; font-size: 1.1em; }
         
         ruby { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; }
-        rt { color: #7f8c8d; font-size: 0.6em; }
+        rt { color: #557A95; font-size: 0.6em; }
 
         .map-link {
-            font-size: 0.65em;
-            margin-left: 12px;
+            font-size: 0.6em;
+            margin-left: 15px;
             text-decoration: none;
-            color: #ffffff;
-            background-color: #4285f4; 
-            padding: 5px 10px;
+            color: var(--text-main);
+            background-color: var(--yuzu-yellow); 
+            padding: 5px 12px;
             border-radius: 20px;
-            font-weight: normal;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(255, 183, 3, 0.3);
+            transition: all 0.2s;
         }
-        
-        .action { font-size: 1.1em; margin-bottom: 15px; color: #555; }
-        .knowledge-box {
-            background-color: #fdfaf4;
-            border-left: 5px solid #d4a373;
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 15px;
-        }
-        .knowledge-title { font-weight: bold; color: #a67c52; margin-bottom: 12px; font-size: 1.15em; display: flex; align-items: center; }
-        .knowledge-title::before { content: '📜'; margin-right: 8px; }
-        .knowledge-content { font-size: 0.98em; color: #5d4037; }
-        .knowledge-content p { margin: 0 0 12px 0; }
-        .knowledge-content p:last-child { margin: 0; }
-        
-        .conversation-title { font-weight: bold; color: #a67c52; margin-bottom: 12px; font-size: 1.15em; display: flex; align-items: center; }
-        .conversation-title::before { content: '💬'; margin-right: 8px; }
+        .map-link:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(255, 183, 3, 0.4); }
+
+        .action { font-size: 1.1em; margin-bottom: 20px; color: #4A5568; line-height: 1.8; }
         
         .info-tag {
             display: inline-block;
-            background-color: #e8f4fd;
-            color: #2980b9;
-            padding: 2px 8px;
-            border-radius: 4px;
+            background-color: #E3F2FD;
+            color: var(--niyodo-blue);
+            padding: 4px 12px;
+            border-radius: 6px;
             font-size: 0.85em;
+            font-weight: bold;
             margin-right: 10px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
-        .transport-tag { background-color: #e0f2f1; color: #00796b; font-weight: bold; }
+        .transport-tag { background-color: #E0F2F1; color: #00796B; font-weight: bold; }
 
-        /* 互動式便利貼樣式 */
-        .sticky-note-container {
-            background-color: #fffde7; /* 溫暖的淡黃色 */
-            border-left: 5px solid #fbc02d;
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            box-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+        .knowledge-box {
+            background-color: #FDFCF8; 
+            border-radius: 4px 12px 12px 4px; 
+            box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0,0,0,0.03);
+            padding: 20px 25px 20px 65px; 
+            margin-top: 20px;
             position: relative;
+            border: 1px solid #EAE6D9;
+            background-image: repeating-linear-gradient(
+                transparent,
+                transparent 31px,
+                rgba(0, 119, 182, 0.08) 31px,
+                rgba(0, 119, 182, 0.08) 32px
+            );
+        }
+
+        .knowledge-box::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; left: 45px;
+            width: 1px;
+            background-color: rgba(220, 53, 69, 0.35);
+        }
+
+        .knowledge-box::after {
+            content: '';
+            position: absolute;
+            top: 16px; bottom: 16px; left: 14px;
+            width: 12px;
+            background-image: radial-gradient(circle, #E1DDD1 5px, transparent 6px);
+            background-size: 100% 32px; 
+            background-repeat: repeat-y;
+        }
+
+        .knowledge-title, .conversation-title { 
+            font-weight: 900; 
+            color: var(--text-main); 
+            margin-bottom: 12px; 
+            font-size: 1.1em; 
+            display: inline-flex; 
+            align-items: center; 
+            background: rgba(144, 224, 239, 0.4); 
+            padding: 2px 10px;
+            border-radius: 4px;
+            transform: skewX(-5deg);
+            position: relative;
+            z-index: 1; 
+        }
+        
+        .knowledge-title::before { content: '📜'; margin-right: 8px; transform: skewX(5deg); }
+        .conversation-title::before { content: '💬'; margin-right: 8px; transform: skewX(5deg); }
+        
+        .knowledge-content { 
+            font-size: 0.98em; 
+            color: #5d4037; 
+            line-height: 32px; 
+            position: relative;
+            z-index: 1;
+        }
+        .knowledge-content p { margin: 0 0 16px 0; }
+        .knowledge-content p:last-child { margin: 0; }
+
+        .sticky-note-container {
+            background-color: #FEF08A; 
+            padding: 25px 30px;
+            border-radius: 2px 2px 25px 4px; 
+            margin-top: 50px;
+            margin-bottom: 20px;
+            box-shadow: 2px 6px 15px rgba(0,0,0,0.08), inset -5px -5px 15px rgba(0,0,0,0.03);
+            position: relative;
+            transform: rotate(-1.5deg); 
+            transition: transform 0.3s ease;
+        }
+        .sticky-note-container:hover {
+            transform: rotate(0deg) translateY(-2px);
+            box-shadow: 4px 8px 20px rgba(0,0,0,0.1), inset -5px -5px 15px rgba(0,0,0,0.03);
         }
         .sticky-note-header {
-            font-weight: bold;
-            color: #f57f17;
-            margin-bottom: 10px;
+            font-weight: 900;
+            color: #B45309;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            font-family: 'Marker Felt', 'Comic Sans MS', "PingFang TC", sans-serif;
         }
         .sticky-note {
             width: 100%;
             min-height: 120px;
             background: transparent;
-            border: 1px dashed #ffd54f;
-            border-radius: 4px;
-            resize: vertical; /* 允許使用者在手機上往下拉伸放大空間 */
+            border: none;
+            border-bottom: 2px dashed rgba(180, 83, 9, 0.2); 
+            border-radius: 0;
+            resize: vertical; 
             font-family: inherit;
             font-size: 1.05em;
-            color: #555;
-            padding: 10px;
+            color: #78350F;
+            padding: 5px;
             box-sizing: border-box;
             outline: none;
-            line-height: 1.6;
-            transition: background-color 0.3s;
+            line-height: 1.8;
+            transition: all 0.3s;
         }
         .sticky-note:focus {
-            border-color: #fbc02d;
-            background-color: #fff9c4; /* 點擊打字時背景會變深一點點 */
+            border-bottom: 2px dashed rgba(180, 83, 9, 0.6);
+            background-color: rgba(255, 255, 255, 0.2); 
         }
         .save-status {
-            font-size: 0.8em;
-            color: #9e9e9e;
+            font-size: 0.85em;
+            color: #92400E;
             text-align: right;
-            margin-top: 8px;
+            margin-top: 10px;
             min-height: 1.2em; 
+            font-weight: bold;
         }
     </style>
 </head>
@@ -217,10 +299,10 @@
                  <div class="knowledge-content">
                        <p style="font-size: 1.15em; font-weight: bold; color: #2c3e50; margin-bottom: 5px; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px;">
                       Check-in <ruby>前<rt>まえ</rt></ruby>ですが、<ruby>荷物<rt>にもつ</rt></ruby>を<ruby>預<rt>あず</rt></ruby>かってもらえますか？
-                      </p>
-                     <p style="margin: 0;"><strong>中文意思：</strong>因為還沒到入住時間，請問可以先寄放行李嗎？</p>
+                       </p>
+                      <p style="margin: 0;"><strong>中文意思：</strong>因為還沒到入住時間，請問可以先寄放行李嗎？</p>
                 </div>
-           </div>
+            </div>
         </div>
 
         <div class="event-block">
@@ -255,28 +337,25 @@
             const noteArea = document.getElementById('trip-note');
             const statusText = document.getElementById('save-status');
 
-            // 自動取得當前檔名 (例如 day4.html) 作為儲存的鑰匙
             let pageName = window.location.pathname.split('/').pop();
             if (!pageName) pageName = 'index.html'; 
             const storageKey = 'kochi_trip_note_' + pageName;
 
-            // 1. 網頁載入時，把之前存的筆記拿出來放進去
             const savedNote = localStorage.getItem(storageKey);
             if (savedNote) {
                 noteArea.value = savedNote;
             }
 
-            // 2. 監聽您打字的動作，停止打字 0.8 秒後自動儲存
             let timeout = null;
             noteArea.addEventListener('input', function() {
                 statusText.textContent = '儲存中...';
-                statusText.style.color = '#f57f17'; // 橘色提示
+                statusText.style.color = '#B45309'; 
 
                 clearTimeout(timeout);
                 timeout = setTimeout(function() {
                     localStorage.setItem(storageKey, noteArea.value);
                     statusText.textContent = '✅ 已自動儲存';
-                    statusText.style.color = '#4caf50'; // 綠色成功
+                    statusText.style.color = '#065F46'; 
                 }, 800); 
             });
         });
